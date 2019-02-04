@@ -1,12 +1,8 @@
 import React, {Component} from 'react'
-import './styles.less'
+import './style.less'
 
 
-class Article extends Component {
-    state = {
-        isOpen: false
-    };
-
+class ArticleCard extends Component {
     render() {
         const {article} = this.props;
         const image = require('../../static/image.jpg');
@@ -22,13 +18,7 @@ class Article extends Component {
             </div>
         );
     }
-
-    handleClick = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    }
 }
 
 
-export default Article;
+export default ArticleCard;

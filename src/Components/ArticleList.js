@@ -1,6 +1,6 @@
 import React from 'react'
-import Article from './ArticleCard'
-import './ArticleCard/styles.css'
+import ArticleCard from './ArticleCard'
+import './ArticleCard/style.css'
 
 export default function ArticleList({ articles }) {
     var i = 0;
@@ -10,7 +10,7 @@ export default function ArticleList({ articles }) {
         const liClass = (isBigSized ? "cards__item--big" : "cards__item");
         return (
             <li className={liClass}>
-                <Article article={article}/>
+                <ArticleCard article={article}/>
             </li>
         )
     });
