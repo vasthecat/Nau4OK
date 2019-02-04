@@ -1,6 +1,6 @@
 import React from 'react'
-import Article from './Article'
-import './Article/styles.css'
+import Article from './ArticleCard'
+import './ArticleCard/styles.css'
 
 export default function ArticleList({ articles }) {
     var i = 0;
