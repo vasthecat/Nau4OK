@@ -5,9 +5,15 @@ import './style.css' // TODO Why doesn't style imports with "import './style.les
 class Article extends Component {
     render() {
         const {article} = this.props;
-        const paragraphs = article.body.split('\n').map(par => {
-            return <p className="paragraph">{par}</p>
-        });
+
+        let paragraphs = <p>There is not article.</p>;
+
+        if (article.text) {
+            paragraphs = article.text.split('\n').map(par => {
+                return <p className="paragraph">{par}</p>
+            });
+        }
+
 
         return (
             <div>

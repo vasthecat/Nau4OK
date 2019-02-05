@@ -10,11 +10,13 @@ class ArticleCard extends Component {
 
         return (
             <div className="card">
-                <div className="card__image" style={{'background-image': 'url(' + image +')'}}></div>
+                <div className="card__image" style={{'background-image': 'url(' + image + ')'}}></div>
                 <div className="card__content">
                     <div className="card__title">{article.title}</div>
                     <p className="card__text">{article.text.split(" ").slice(0, 50).join(" ")}</p>
-                    <button className="btn btn--block card__btn">Button</button>
+                    <a style={{textDecoration: 'none'}} href={`/articles/${article.id}`}>
+                        <div className="btn btn--block card__btn">Button</div>
+                    </a>
                 </div>
             </div>
         );

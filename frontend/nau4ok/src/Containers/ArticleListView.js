@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import ArticleCard from './ArticleCard'
+import ArticleCard from '../Components/ArticleCard/index'
 import axios from 'axios'
-import './ArticleCard/style.css'
+import '../Components/ArticleCard/style.css'
 
 class ArticleList extends Component {
     state = {
@@ -14,7 +14,6 @@ class ArticleList extends Component {
                 articles: res.data,
             });
         });
-        console.log(this.state);
     }
 
     render() {
@@ -36,6 +35,6 @@ class ArticleList extends Component {
             </ul>
         )
     }
-};
+}
 
 export default ArticleList;
