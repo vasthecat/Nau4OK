@@ -16,7 +16,7 @@ class User(AbstractUser):
 class Article(models.Model):
     author = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=30)
-    description = models.CharField(max_length=50)
+    description = models.CharField(max_length=350)
     text = models.TextField()
     image = models.ImageField(upload_to='article_images/')
     rating = models.IntegerField(default=0)
