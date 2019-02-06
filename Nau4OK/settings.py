@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -36,13 +35,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'django.contrib.sites',
 
-    'rest_auth',
-    'allauth',
     'corsheaders',
-    'rest_framework',
+    'allauth',
+    'allauth.account',
 
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'rest_auth.registration',
     'articles'
 ]
 
@@ -130,11 +133,15 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'articles.User'
 CORS_ORIGIN_ALLOW_ALL = True
 
-
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'articles.api.serializers.UserSerializer',
 
 }
 REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': None
+    'REGISTER_SERIALIZER': 'articles.api.serializers.CustomRegisterSerializer',
 }
+
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
