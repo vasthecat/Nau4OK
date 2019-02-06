@@ -1,15 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.css'
+import './static/style.css'
 
 import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import BaseRouter from './routes';
 import CustomLayout from './Containers/Layout';
-
-
-{/*<Article article={articles[0]} />*/
-}
-
-
 
 
 class App extends Component {

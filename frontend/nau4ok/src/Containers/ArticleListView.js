@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import ArticleCard from '../Components/ArticleCard/index'
+import ArticleCard from '../Components/ArticleCard'
 import axios from 'axios'
-import '../Components/ArticleCard/style.css'
 
 class ArticleList extends Component {
     state = {
