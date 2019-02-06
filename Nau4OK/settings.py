@@ -36,7 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
+    'rest_auth',
+    'allauth',
     'corsheaders',
     'rest_framework',
 
@@ -126,3 +129,12 @@ MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'articles.User'
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'articles.api.serializers.UserSerializer',
+
+}
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': None
+}

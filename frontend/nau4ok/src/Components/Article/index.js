@@ -2,8 +2,9 @@ import React, {Component} from 'react'
 
 
 class Article extends Component {
+
     render() {
-        const {article} = this.props;
+        const {article, author} = this.props;
 
         let articleTitle = 'Default title';
 
@@ -25,11 +26,18 @@ class Article extends Component {
             articleImage = article.image;
         }
 
-        let author = 'Author is not specified';
+        let fullName = 'Author is not specified';
 
-        if (article.author) {
-            author = article.author;
+        if (author.first_name && author.last_name) {
+            fullName = author.first_name + ' ' + author.last_name;
         }
+
+        let avatar = require('../../static/image.jpg');
+
+        if (author.avatar) {
+            avatar = author.avatar;
+        }
+
 
         return (
             <div>
@@ -40,12 +48,12 @@ class Article extends Component {
 
                 <div className="my-4 d-flex flex-row">
                     <div className="p-2">
-                        <img src={article.author_avatar} alt="User avatar" className="avatar"/>
+                        <img src={avatar} alt="User avatar" className="avatar"/>
                     </div>
                     <div className="d-flex flex-column">
                         <div className="ml-2 mt-1">
                             <div className="d-flex flex-row">
-                                <h2>{article.author_firstName} {article.author_lastName}</h2>
+                                <h2>{fullName}</h2>
                                 <button type="button" className="btn btn-primary btn-sm mx-3 mt-1 mb-2">Follow</button>
                             </div>
                         </div>

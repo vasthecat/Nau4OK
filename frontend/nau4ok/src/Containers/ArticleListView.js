@@ -8,7 +8,7 @@ class ArticleList extends Component {
     };
 
     componentDidMount() {
-        axios.get('http://localhost:8000/api').then(res => {
+        axios.get('http://localhost:8000/api/articles').then(res => {
             this.setState({
                 articles: res.data,
             });
