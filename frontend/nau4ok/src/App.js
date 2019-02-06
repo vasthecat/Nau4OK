@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import './static/style.css'
+import './static/login_form_style.css'
 
+import 'bootstrap/dist/js/bootstrap'
 import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import BaseRouter from './routes';
