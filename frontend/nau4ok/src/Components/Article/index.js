@@ -1,10 +1,15 @@
 import React, {Component} from 'react'
-import './style.css' // TODO Why doesn't style imports with "import './style.less'"
 
 
 class Article extends Component {
     render() {
         const {article} = this.props;
+
+        let articleTitle = 'Default title';
+
+        if (article.title) {
+            articleTitle = article.title;
+        }
 
         let paragraphs = <p>There is not article.</p>;
 
@@ -14,12 +19,23 @@ class Article extends Component {
             });
         }
 
+        let articleImage = require('../../static/image.jpg');
+
+        if (article.image) {
+            articleImage = article.image;
+        }
+
+        let author = 'Author is not specified';
+
+        if (article.author) {
+            author = article.author;
+        }
 
         return (
             <div>
-                <img src={require('../../static/image.jpg')} alt="Article" className="img-fluid"/>
+                <img src={articleImage} alt="Article" className="img-fluid mt-5"/>
                 <h1 className="display-3 mt-5">
-                    {article.title}
+                    {articleTitle}
                 </h1>
 
                 <div className="my-4 d-flex flex-row">

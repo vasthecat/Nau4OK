@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import '../Components/ArticleCard/style.css'
 import Article from "../Components/Article";
 import { Button, Card } from 'antd';
 
