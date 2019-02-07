@@ -40,7 +40,7 @@ class Article extends Component {
 
 
         return (
-            <div>
+            <div className="container">
                 <img src={articleImage} alt="Article" className="img-fluid mt-5"/>
                 <h1 className="display-3 mt-5">
                     {articleTitle}

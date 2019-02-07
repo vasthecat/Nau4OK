@@ -17,7 +17,7 @@ class NormalLoginForm extends React.Component {
         this.props.history.push('/');
       }
     });
-  }
+  };
 
   render() {
     let errorMessage = null;
@@ -29,7 +29,7 @@ class NormalLoginForm extends React.Component {
 
     const { getFieldDecorator } = this.props.form;
 
-    const form = (
+    const deprecatedForm = (
         <Form onSubmit={this.handleSubmit} className="login-form">
 
             <FormItem>
@@ -61,31 +61,37 @@ class NormalLoginForm extends React.Component {
         </Form>
     );
 
-    const form2 = (
+    const form = (
         <section className="sign-in">
             <div className="sign-in-container">
                 <div className="sign-in-content display-flex">
                     <figure className="sign-in-image">
                         <img src={require('../static/signin-image.jpg')} alt=""/>
                     </figure>
-                    
+
                     <div className="sign-in-form">
                         <h2 className="form-title">Sign in</h2>
-                        <form method="POST" className="register-form" id="register-form">
+                        <form onSubmit={this.handleSubmit} className="register-form" id="register-form">
                             <div className="form-group">
-                                <label htmlFor="your_name"><i className="zmdi zmdi-account material-icons-name"></i></label>
-                                <input className="form-input" type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                                {getFieldDecorator('userName', {
+                                    rules: [{ required: true, message: 'Please input your username!' }],
+                                })(
+                                    <input className="form-input" type="text" placeholder="Your Name"/>
+                                )}
                             </div>
                             <div className="form-group">
-                                <label htmlFor="your_pass"><i className="zmdi zmdi-lock"></i></label>
-                                <input className="form-input" type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                                {getFieldDecorator('password', {
+                                    rules: [{ required: true, message: 'Please input your Password!' }],
+                                })(
+                                    <input className="form-input" type="password" placeholder="Password"/>
+                                )}
                             </div>
                             <div className="form-group">
                                 <input className="form-input-checkbox" type="checkbox" name="remember-me" id="remember-me"/>
                                 <label className="pl-2" htmlFor="remember-me">Remember me</label>
                             </div>
                             <div className="form-group px-1">
-                                <input className="btn btn--block" type="submit" name="signin" id="signin" value="Log in"/>
+                                <input className="card-button btn--block" type="submit" name="signin" id="signin" value="Log in"/>
                             </div>
                         </form>
                     </div>
@@ -99,7 +105,7 @@ class NormalLoginForm extends React.Component {
         <div>
             <div className="login-bg"><div className="login-overlay"></div></div>
             {errorMessage}
-            {this.props.loading ? <Spin indicator={antIcon} /> : form2}
+            {this.props.loading ? <Spin indicator={antIcon} /> : form}
         </div>
     );
   }

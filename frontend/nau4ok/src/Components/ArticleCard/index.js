@@ -14,7 +14,7 @@ class ArticleCard extends Component {
                     <div className="card__title">{article.title}</div>
                     <p className="card__text">{article.description.split(" ").slice(0, 50).join(" ")}</p>
                     <a style={{textDecoration: 'none'}} href={`/articles/${article.id}`}>
-                        <div className="btn btn--block card__btn">Открыть статью</div>
+                        <div className="card-button btn--block card__btn">Открыть статью</div>
                     </a>
                 </div>
             </div>
