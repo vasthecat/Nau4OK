@@ -3,9 +3,47 @@
 *::after {
   box-sizing: border-box;
 }
+.bg-img {
+  background-image: url('../static/image.jpg');
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+}
+.bg-img .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.8;
+  background: #1C1D21;
+}
+.nau4ok-header {
+  height: 100vh;
+}
+.header-wrapper {
+  position: absolute;
+  color: white;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.navbar--styled {
+  background-image: linear-gradient(#8e23bd, #9e65b6);
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
 body {
   color: #444444;
-  background-color: #ecdbff;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -20,10 +58,8 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
-.navbar--styled {
-  background-image: linear-gradient(#8e23bd, #9e65b6);
-}
-.btn {
+.card-button {
+  text-align: center;
   background-color: white;
   border: 1px solid #cccccc;
   border-radius: 1rem;
@@ -133,5 +169,21 @@ img {
   max-height: 90px;
   border-color: #444444;
   border-width: 1px;
+}
+.avatar-mini {
+  border-radius: 50%;
+  min-width: 90px;
+  max-width: 90px;
+  min-height: 90px;
+  max-height: 90px;
+  border-color: #444444;
+  border-width: 1px;
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+}
+#navbarDropdown {
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
