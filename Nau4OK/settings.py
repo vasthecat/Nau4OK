@@ -135,6 +135,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'articles.api.serializers.UserSerializer',
+    'TOKEN_SERIALIZER': 'articles.api.serializers.TokenSerializer'
 
 }
 REST_AUTH_REGISTER_SERIALIZERS = {

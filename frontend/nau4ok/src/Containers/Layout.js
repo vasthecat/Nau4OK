@@ -29,7 +29,7 @@ class CustomLayout extends React.Component {
                                     :
 
                                     <li className="nav-item">
-                                        <a className="nav-link" href={"/login"} >Login</a>
+                                        <a className="nav-link" href={"/login"}>Login</a>
                                     </li>
                             }
 
@@ -60,6 +60,18 @@ class CustomLayout extends React.Component {
     }
 };
 
+const mapStateToProps = state => {
+    return {
+        username: state.username,
+        first_name: state.first_name,
+        last_name: state.last_name,
+        email: state.email,
+        avatar: state.avatar,
+        userId: state.userId,
+        token: state.token,
+    };
+};
+
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -67,4 +79,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(CustomLayout));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CustomLayout));

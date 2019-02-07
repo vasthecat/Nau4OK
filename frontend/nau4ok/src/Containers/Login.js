@@ -78,7 +78,7 @@ const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 const mapStateToProps = (state) => {
     return {
         loading: state.loading,
-        error: state.error
+        error: state.error,
     }
 }
 

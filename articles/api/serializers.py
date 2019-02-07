@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_auth.registration.serializers import RegisterSerializer
 from articles.models import Article, User
 from allauth.account.adapter import get_adapter
+from rest_framework.authtoken.models import Token
 
 
 class ArticleSerializer(serializers.ModelSerializer):
@@ -21,14 +22,11 @@ class UserSerializer(serializers.ModelSerializer):
 class CustomRegisterSerializer(RegisterSerializer):
     first_name = serializers.CharField(max_length=30)
     last_name = serializers.CharField(max_length=150)
-    bio = serializers.CharField(max_length=500)
-    location = serializers.CharField(max_length=30)
-    birth_date = serializers.DateField()
-    avatar = serializers.ImageField(use_url=True)
+    is_author = serializers.BooleanField()
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'birth_date', 'bio', 'location', 'avatar', 'password')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password', 'is_author')
 
     def get_cleaned_data(self):
         return {
@@ -38,9 +36,6 @@ class CustomRegisterSerializer(RegisterSerializer):
             'email': self.validated_data.get('email', ''),
             'first_name': self.validated_data.get('first_name', ''),
             'last_name': self.validated_data.get('last_name', ''),
-            'birth_date': self.validated_data.get('birth_date', ''),
-            'location': self.validated_data.get('location', ''),
-            'avatar': self.validated_data.get('avatar', ''),
 
         }
 
@@ -52,11 +47,22 @@ class CustomRegisterSerializer(RegisterSerializer):
 
         user.first_name = self.cleaned_data.get('first_name')
         user.last_name = self.cleaned_data.get('last_name')
-        user.birth_date = self.cleaned_data.get('birth_date')
-        user.location = self.cleaned_data.get('location')
-        user.avatar = self.cleaned_data.get('avatar')
         user.is_author = 0
 
         user.save()
         adapter.save_user(request, user, self)
         return user
+
+
+class TokenSerializer(serializers.ModelSerializer):
+    user_info = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Token
+        fields = ('key', 'user', 'user_info')
+
+    def get_user_info(self, obj):
+        serializer_data = UserSerializer(obj.user).data
+        del serializer_data['password']
+
+        return serializer_data
