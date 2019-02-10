@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import ArticleCard from '../Components/ArticleCard'
 import axios from 'axios'
+import Scrollchor from 'react-scrollchor';
+
 
 class ArticleList extends Component {
     state = {
@@ -31,7 +33,9 @@ class ArticleList extends Component {
         return (
             <div>
                 <header className="nau4ok-header">
-                    <div className="bg-img"><div className="overlay"></div></div>
+                    <div className="bg-img">
+                        <div className="overlay"></div>
+                    </div>
 
                     <div className="header-wrapper text-center">
                         <div className="header-content container">
@@ -48,23 +52,26 @@ class ArticleList extends Component {
                                     vehicula eu sem a, aliquam blandit odio. Nullam non congue orci.
                                 </p>
 
-
-                                <div className="arrow-container mx-auto">
-                                    <a href="#articleList">
-                                        <div className="chevron"></div>
-                                        <div className="chevron"></div>
-                                        <div className="chevron"></div>
-                                        <span className="arrow-text">Пофлексить к статьям</span>
-                                    </a>
-                                </div>
+                                <Scrollchor to="#articleList" className="nav-link" animate={{offset: -100, duration: 600}}>
+                                    <div className="arrow-container mx-auto">
+                                        <div>
+                                            <div className="chevron"/>
+                                            <div className="chevron"/>
+                                            <div className="chevron"/>
+                                            <span className="arrow-text">Пофлексить к статьям</span>
+                                        </div>
+                                    </div>
+                                </Scrollchor>
 
                             </div>
                         </div>
                     </div>
                 </header>
 
-                <div className="container">
-                    <div className="display-3 col-md-10 offset-md-1 text-center my-5" id="articleList">You may be intrested: </div>
+                <div className="container" id="articleList">
+                    <div className="display-3 col-md-10 offset-md-1 text-center my-5" >You may be
+                        intrested:
+                    </div>
                     <ul className="cards">
                         {articleElements}
                     </ul>
