@@ -47,13 +47,24 @@ class ArticleList extends Component {
                                     amet sapien aliquet pretium in in risus. Sed id consequat est. Vestibulum eros ante,
                                     vehicula eu sem a, aliquam blandit odio. Nullam non congue orci.
                                 </p>
-                                <button className="btn btn-primary">Button</button>
+
+
+                                <div className="arrow-container mx-auto">
+                                    <a href="#articleList">
+                                        <div className="chevron"></div>
+                                        <div className="chevron"></div>
+                                        <div className="chevron"></div>
+                                        <span className="arrow-text">Пофлексить к статьям</span>
+                                    </a>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </header>
 
                 <div className="container">
+                    <div className="display-3 col-md-10 offset-md-1 text-center my-5" id="articleList">You may be intrested: </div>
                     <ul className="cards">
                         {articleElements}
                     </ul>
