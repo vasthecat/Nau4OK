@@ -1,3 +1,9 @@
+.arrow-scroll {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .arrow-container {
   display: flex;
   position: relative;
@@ -74,7 +80,7 @@
 .arrow-text {
   display: block;
   margin-top: 75px;
-  margin-left: -80px;
+  margin-left: -63px;
   font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-size: 15px;
   color: #fff;

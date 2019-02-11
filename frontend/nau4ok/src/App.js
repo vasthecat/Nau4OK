@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './static/style.css'
 import './static/login_form_style.css'
 import './static/ArrowStyle.css'
+import './static/NavbarStyle.css'
 
 import 'bootstrap/dist/js/bootstrap'
 import React, {Component} from 'react';

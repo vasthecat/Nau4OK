@@ -5,10 +5,6 @@
 @gray-lighter:              #ececec;
 @gray-lightest:             lighten(@gray-lighter,4%);
 
-@purple-dark:               #8e23bd;
-@purple:                    #9e65b6;
-@purple-light:              #ecdbff;
-
 
 *,
 *::before,
@@ -48,14 +44,6 @@
   top: 50%;
   width: 100%;
   transform: translateY(-50%);
-}
-
-.navbar--styled {
-  background-image: linear-gradient(@purple-dark, @purple);
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1;
 }
 
 body {
@@ -208,9 +196,4 @@ img {
 
   min-height: @mini-avatar-size;
   max-height: @mini-avatar-size;
-}
-
-#navbarDropdown {
-  //align-content: center;
-  color: white;
 }

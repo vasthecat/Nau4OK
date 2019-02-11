@@ -33,13 +33,6 @@
   width: 100%;
   transform: translateY(-50%);
 }
-.navbar--styled {
-  background-image: linear-gradient(#8e23bd, #9e65b6);
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
 body {
   color: #444444;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -180,8 +173,5 @@ img {
   max-width: 40px;
   min-height: 40px;
   max-height: 40px;
-}
-#navbarDropdown {
-  color: white;
 }
 /*# sourceMappingURL=style.css.map */

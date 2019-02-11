@@ -51,21 +51,20 @@ class ArticleList extends Component {
                                     amet sapien aliquet pretium in in risus. Sed id consequat est. Vestibulum eros ante,
                                     vehicula eu sem a, aliquam blandit odio. Nullam non congue orci.
                                 </p>
-
-                                <Scrollchor to="#articleList" className="nav-link" animate={{offset: -100, duration: 600}}>
-                                    <div className="arrow-container mx-auto">
-                                        <div>
-                                            <div className="chevron"/>
-                                            <div className="chevron"/>
-                                            <div className="chevron"/>
-                                            <span className="arrow-text">Пофлексить к статьям</span>
-                                        </div>
-                                    </div>
-                                </Scrollchor>
-
                             </div>
                         </div>
                     </div>
+
+                    <Scrollchor to="#articleList" className="nav-link arrow-scroll" animate={{offset: -100, duration: 600}}>
+                        <div className="arrow-container mx-auto">
+                            <div>
+                                <div className="chevron"/>
+                                <div className="chevron"/>
+                                <div className="chevron"/>
+                                <span className="arrow-text">Scroll to articles</span>
+                            </div>
+                        </div>
+                    </Scrollchor>
                 </header>
 
                 <div className="container" id="articleList">
