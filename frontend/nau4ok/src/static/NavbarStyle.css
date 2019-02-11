@@ -37,8 +37,6 @@
   box-shadow: none;
 }
 .search-form {
-  padding-top: 5px;
-  padding-bottom: 5px;
   width: 70%;
   color: #e1e1e1;
   background-color: transparent;
@@ -50,29 +48,19 @@
 }
 .search-form:hover {
   color: white;
-  border-bottom: 1px solid white;
 }
 .search-form:hover::placeholder {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 70%;
-  color: #e1e1e1;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #e1e1e1;
   color: white;
 }
 .search-form:focus {
   color: white;
-  border-bottom: 1px solid white;
+  outline: none;
 }
 .search-form:focus::placeholder {
   color: white;
 }
 @media screen and (max-width: 990px) {
   .search-form {
-    padding-top: 5px;
-    padding-bottom: 5px;
     width: 70%;
     color: #e1e1e1;
     background-color: transparent;
