@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Article from "../Components/Article";
-import {Button, Card} from 'antd';
 
 
 class ArticleDetail extends Component {
@@ -32,10 +31,8 @@ class ArticleDetail extends Component {
 
     render() {
         if (this.state.mounted) {
-
             return (
                 <Article article={this.state.article} author={this.state.author}/>
-
             )
         } else {
             return null
