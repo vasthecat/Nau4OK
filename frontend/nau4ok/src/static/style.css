@@ -33,6 +33,9 @@
   width: 100%;
   transform: translateY(-50%);
 }
+html {
+  overflow-y: scroll;
+}
 body {
   color: #444444;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
