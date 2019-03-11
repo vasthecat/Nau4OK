@@ -14,6 +14,7 @@ const initialState = {
     avatar: null,
     is_author: null,
 
+    searchText: null,
 }
 
 const authStart = (state, action) => {
@@ -53,6 +54,12 @@ const authLogout = (state, action) => {
     });
 }
 
+const searchUpdate = (state, action) => {
+    return updateObject(state, {
+        searchText: action.text,
+    });
+};
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.AUTH_START:
@@ -63,6 +70,10 @@ const reducer = (state = initialState, action) => {
             return authFail(state, action);
         case actionTypes.AUTH_LOGOUT:
             return authLogout(state, action);
+
+        case actionTypes.SEARCH_CHANGED:
+            return searchUpdate(state, action);
+
         default:
             return state;
     }

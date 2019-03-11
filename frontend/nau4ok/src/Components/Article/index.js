@@ -41,7 +41,8 @@ class Article extends Component {
 
         return (
             <div className="container">
-                <img src={articleImage} alt="Article" className="img-fluid mt-5"/>
+                <img src={articleImage} alt="Article" className="img-fluid" style={{'paddingTop': '100px'}}/>
+
                 <h1 className="display-3 mt-5">
                     {articleTitle}
                 </h1>
@@ -54,12 +55,13 @@ class Article extends Component {
                         <div className="ml-2 mt-1">
                             <div className="d-flex flex-row">
                                 <h2>{fullName}</h2>
-                                <button type="button" className="btn btn-primary btn-sm mx-3 mt-1 mb-2">Follow</button>
                             </div>
                         </div>
                         <div className="ml-2 mt-1">An journalist</div>
                     </div>
                 </div>
+
+
                 {paragraphs}
             </div>
         );

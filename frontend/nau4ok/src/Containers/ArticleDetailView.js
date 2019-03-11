@@ -13,20 +13,17 @@ class ArticleDetail extends Component {
     componentWillMount() {
         const articleID = this.props.match.params.articleID;
 
-        axios.get(`http://localhost:8000/api/articles/${articleID}`).then(res => {
+        axios.get(`http://karmanline.ddns.net:8000/api/articles/${articleID}`).then(res => {
             this.setState({
                 article: res.data,
             });
-            axios.get(`http://localhost:8000/api/users/${this.state.article.author}`).then(res => {
+            axios.get(`http://karmanline.ddns.net:8000/api/users/${this.state.article.author}`).then(res => {
                 this.setState({
                     author: res.data,
                     mounted: true
                 });
             });
-
         });
-
-
     }
 
     render() {

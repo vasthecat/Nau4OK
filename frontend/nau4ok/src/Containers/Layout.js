@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import * as actions from '../store/actions/auth';
 
 class CustomLayout extends React.Component {
+
     render() {
         const signedInButtons = (
             <ul className="navbar-nav mt-2 mt-md-0">
@@ -46,6 +47,8 @@ class CustomLayout extends React.Component {
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark navbar--styled">
                     <div className="container my-1">
+                        <a className="navbar-brand" href="/">Nau4OK</a>
+
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
                                 aria-expanded="false"
@@ -54,10 +57,7 @@ class CustomLayout extends React.Component {
                         </button>
 
                         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                            <a className="navbar-brand" href="/">Nau4OK</a>
-
-                            <input className="mx-auto search-form" type="search" placeholder="Search" aria-label="Search"/>
-
+                            <input className="mx-auto search-form" type="search" placeholder="Search" aria-label="Search" onChange={this.props.handleSearch}/>
                             {this.props.isAuthenticated ? (signedInButtons) : (loginButton)}
 
                         </div>
@@ -85,7 +85,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        logout: () => dispatch(actions.logout())
+        logout: () => dispatch(actions.logout()),
+        handleSearch: (event) => dispatch(actions.searchChanged(event.target.value))
     }
 };
 
