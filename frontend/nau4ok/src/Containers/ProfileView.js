@@ -3,6 +3,7 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import Profile from '../Components/Profile'
 import axios from "axios";
+import * as constants from "../constants";
 
 class ProfileView extends Component {
 
@@ -16,7 +17,7 @@ class ProfileView extends Component {
 
         if (profileID === undefined) profileID = this.props.userId;
 
-        axios.get(`http://karmanline.ddns.net:8000/api/users/${profileID}`).then(res => {
+        axios.get(`${constants.LOCALHOST}/api/users/${profileID}`).then(res => {
             this.setState({
                 user: res.data,
                 mounted: true

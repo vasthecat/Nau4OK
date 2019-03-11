@@ -4,6 +4,7 @@ import axios from 'axios'
 import Scrollchor from 'react-scrollchor';
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
+import * as constants from "../constants";
 
 
 class ArticleList extends Component {
@@ -37,7 +38,7 @@ class ArticleList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://karmanline.ddns.net:8000/api/articles').then(res => {
+        axios.get(`${constants.LOCALHOST}/api/articles`).then(res => {
             this.setState({
                 articles: res.data,
             });
