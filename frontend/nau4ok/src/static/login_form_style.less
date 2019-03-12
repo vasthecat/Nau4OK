@@ -1,28 +1,24 @@
 @purple: rgba(83, 47, 191, 0.9);
 @cyan: rgba(35, 216, 186, 0.7);
 
+.login-bg, .login-overlay {
+  position: relative;
+  min-height: 100vh;
 
-.login-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  background: url('../static/science.png') fixed center;
+
   background-blend-mode: multiply;
 }
 
+.login-bg {
+  background-image: url('../static/science.png');
+}
+
 .login-overlay {
-  background-blend-mode: multiply;
   background-image: linear-gradient(@purple, @cyan);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
 }
 
 .display-flex {

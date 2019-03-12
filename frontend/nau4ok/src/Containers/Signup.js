@@ -216,9 +216,10 @@ class RegistrationForm extends React.Component {
         );
 
         return (
-            <div>
-                <div className="login-bg"><div className="login-overlay"></div></div>
-                {form}
+            <div className="login-bg">
+                <div className="login-overlay">
+                    {form}
+                </div>
             </div>
         );
     }

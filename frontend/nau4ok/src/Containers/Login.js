@@ -70,10 +70,11 @@ class NormalLoginForm extends React.Component {
 
 
     return (
-        <div>
-            <div className="login-bg"><div className="login-overlay"></div></div>
-            {errorMessage}
-            {this.props.loading ? <Spin indicator={antIcon} /> : form}
+        <div className="login-bg">
+            <div className="login-overlay">
+                {errorMessage}
+                {this.props.loading ? <Spin indicator={antIcon} /> : form}
+            </div>
         </div>
     );
   }

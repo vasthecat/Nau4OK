@@ -1,0 +1,57 @@
+.profile-section {
+  padding-top: 150px;
+}
+.profile-container {
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+}
+.profile-avatar {
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+  transform: translateY(-30%);
+  display: flex;
+  margin: auto;
+}
+.user-fullname {
+  font-size: 30px;
+  font-weight: bold;
+}
+.profile-content {
+  padding: 0 30px 75px;
+  display: flex;
+  flex-direction: column;
+}
+.activities {
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 990px) {
+  .activities {
+    padding-top: 10px;
+  }
+}
+.user-activity {
+  align-self: center;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  -moz-transition: width 1s ease 0s;
+  transition: width 0.7s ease 0s, padding 0.7s ease 0s;
+}
+.user-activity:hover {
+  width: 103%;
+  padding: 30px;
+  transition: width 0.7s ease 0s, padding 0.7s ease 0s;
+}
+.activity-content {
+  align-content: center;
+}
+/*# sourceMappingURL=ProfileStyle.css.map */
