@@ -1,0 +1,1 @@
+export const LOCALHOST = 'http://127.0.0.1:8000';  //'http://karmanline.ddns.net:8000' | 'http://127.0.0.1:8000'
