@@ -20,7 +20,7 @@ class Article extends Component {
             });
         }
 
-        let articleImage = require('../../static/image.jpg');
+        let articleImage = require('../../static/images/image.jpg');
 
         if (article.image) {
             articleImage = article.image;
@@ -32,7 +32,7 @@ class Article extends Component {
             fullName = author.first_name + ' ' + author.last_name;
         }
 
-        let avatar = require('../../static/image.jpg');
+        let avatar = require('../../static/images/image.jpg');
 
         if (author.avatar) {
             avatar = author.avatar;
