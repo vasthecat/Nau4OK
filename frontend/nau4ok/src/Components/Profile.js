@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ArticleCard from "./ArticleCard";
 
 
 class Profile extends Component {
@@ -14,6 +15,7 @@ class Profile extends Component {
     }
 
     render() {
+        const img = require('../static/image.jpg')
         const form = (
             <div className="container">
                 <div className="row">
@@ -57,6 +59,18 @@ class Profile extends Component {
                                     Mauris ut dolor eu sapien placerat pharetra a ac quam. Aenean consequat lorem vel metus rutrum elementum. Proin iaculis, magna at fringilla tincidunt, velit est vulputate tortor, vel pellentesque odio massa non ante. Phasellus convallis augue vitae pellentesque bibendum. Praesent tempus consequat massa ac gravida. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla luctus diam id pharetra dictum. Maecenas vulputate dolor diam, sed auctor odio imperdiet et.
                                 </div>
                             </div>
+
+                            <div className="profile-article">
+                                <ArticleCard article={{'id': '1', 'title': 'Здарова', 'description': 'lorem ipsum', 'image': img}} />
+                            </div>
+
+                            <div className="user-activity">
+                                <div className="activity-content">
+                                    <h2>Комментарий к статье <a href="/articles/1">"First article"</a></h2>
+                                    Mauris ut dolor eu sapien placerat pharetra a ac quam. Aenean consequat lorem vel metus rutrum elementum. Proin iaculis, magna at fringilla tincidunt, velit est vulputate tortor, vel pellentesque odio massa non ante. Phasellus convallis augue vitae pellentesque bibendum. Praesent tempus consequat massa ac gravida. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla luctus diam id pharetra dictum. Maecenas vulputate dolor diam, sed auctor odio imperdiet et.
+                                </div>
+                            </div>
+
                         </section>
                     </div>
                 </div>

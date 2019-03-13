@@ -59,12 +59,19 @@ class CustomLayout extends React.Component {
                         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                             <input className="mx-auto search-form" type="search" placeholder="Search" aria-label="Search" onChange={this.props.handleSearch}/>
                             {this.props.isAuthenticated ? (signedInButtons) : (loginButton)}
-
                         </div>
                     </div>
                 </nav>
 
                 {this.props.children}
+
+                <footer className="container-fluid">
+                    <div className="row">
+                        <div className="col-lg-12 offset-md-0 col-md-12 footer-container justify-content-center">
+                            <div className="display-1">НУ ЗДАРОВА Я ФУТЕР</div>
+                        </div>
+                    </div>
+                </footer>
             </div>
         );
     }

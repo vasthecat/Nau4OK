@@ -44,14 +44,17 @@
   box-shadow: 0 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
   width: 100%;
   -moz-transition: width 1s ease 0s;
-  transition: width 0.7s ease 0s, padding 0.7s ease 0s;
+  transition: width 0.3s ease 0s, padding 0.3s ease 0s;
 }
 .user-activity:hover {
   width: 103%;
   padding: 30px;
-  transition: width 0.7s ease 0s, padding 0.7s ease 0s;
+  transition: width 0.3s ease 0s, padding 0.3s ease 0s;
 }
 .activity-content {
   align-content: center;
+}
+.profile-article {
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=ProfileStyle.css.map */
