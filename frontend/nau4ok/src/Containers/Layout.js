@@ -12,7 +12,7 @@ class CustomLayout extends React.Component {
                     <a className="dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span className="mr-2">{this.props.username}</span>
-                        <img src={require('../static/avatar.jpg')} alt="User avatar" className="avatar-mini"/>
+                        <img src={require('../static/images/avatar.jpg')} alt="User avatar" className="avatar-mini"/>
                     </a>
                     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a className="dropdown-item" href="#">Profile</a>
@@ -47,7 +47,7 @@ class CustomLayout extends React.Component {
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark navbar--styled">
                     <div className="container my-1">
-                        <a className="navbar-brand" href="/">Nau4OK</a>
+                        <a className="navbar-brand" href="/">НаучОК</a>
 
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"

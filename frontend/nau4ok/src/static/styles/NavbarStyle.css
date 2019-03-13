@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'docker';
+  src: url('../fonts/docker2.ttf');
+}
+@font-face {
+  font-family: 'vertex';
+  src: url('../fonts/vertex1.otf');
+}
+@font-face {
+  font-family: 'unisans';
+  src: url('../fonts/unisans.otf');
+}
 .navbar--styled {
   background-image: linear-gradient(#8e23bd, #9e65b6);
   position: fixed;
@@ -8,6 +20,12 @@
 #navbarDropdown {
   color: white;
   background: inherit;
+}
+.navbar-brand {
+  font-family: rounds1, fantasy ;
+  font-weight: bold;
+  letter-spacing: 4px;
+  font-size: 30px;
 }
 .login-button {
   color: #e1e1e1;

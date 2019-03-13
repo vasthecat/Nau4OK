@@ -11,7 +11,7 @@
   bottom: 0;
   z-index: -1;
   background-size: cover;
-  background: url('../static/science.png') fixed center;
+  background: url('../images/science.png') fixed center;
   background-blend-mode: multiply;
 }
 .bg-img .overlay {

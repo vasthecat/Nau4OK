@@ -34,7 +34,7 @@ class NormalLoginForm extends React.Component {
             <div className="sign-in-container">
                 <div className="sign-in-content display-flex">
                     <figure className="sign-in-image">
-                        <img src={require('../static/signin-image.jpg')} alt=""/>
+                        <img src={require('../static/images/signin-image.jpg')} alt=""/>
                     </figure>
 
                     <div className="sign-in-form">

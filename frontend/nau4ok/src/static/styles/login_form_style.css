@@ -9,7 +9,7 @@
   background-blend-mode: multiply;
 }
 .login-bg {
-  background-image: url('../static/science.png');
+  background-image: url('../images/science.png');
 }
 .login-overlay {
   background-image: linear-gradient(rgba(83, 47, 191, 0.9), rgba(35, 216, 186, 0.7));

@@ -208,7 +208,7 @@ class RegistrationForm extends React.Component {
                         </div>
 
                         <figure className="signup-image">
-                            <img src={require('../static/signup-image.jpg')} alt=""/>
+                            <img src={require('../static/images/signup-image.jpg')} alt=""/>
                         </figure>
                     </div>
                 </div>
