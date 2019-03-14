@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import * as actions from '../store/actions/auth';
+import Footer from '../Components/Footer'
 
 class CustomLayout extends React.Component {
 
@@ -65,13 +66,7 @@ class CustomLayout extends React.Component {
 
                 {this.props.children}
 
-                <footer className="container-fluid">
-                    <div className="row">
-                        <div className="col-lg-12 offset-md-0 col-md-12 footer-container justify-content-center">
-                            <div className="display-4">НУ ЗДАРОВА Я ФУТЕР</div>
-                        </div>
-                    </div>
-                </footer>
+                <Footer/>
             </div>
         );
     }

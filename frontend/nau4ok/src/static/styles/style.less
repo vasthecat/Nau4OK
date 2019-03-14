@@ -10,7 +10,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-
+  outline: none;
 }
 
 .floating-container {
@@ -77,12 +77,23 @@ img {
 }
 
 .card-button {
+  outline: none;
   text-align: center;
   background-color: white;
   border: 1px solid @gray-light;
   border-radius: 1rem;
   color: @gray-dark;
   padding: 0.5rem;
+}
+
+.card-button:hover {
+  outline: none;
+  border: 1px solid @gray;
+}
+
+.card-button:active {
+  outline: none;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 
 .btn--block {

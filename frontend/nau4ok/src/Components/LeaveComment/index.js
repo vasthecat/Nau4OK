@@ -11,6 +11,9 @@ export default class LeaveComment extends Component {
                 <div className="comment-content">
                     <div className="comment-username">Оставьте ваш комментарий</div>
                     <textarea placeholder={"Ваш комментарий"} className="comment-textarea"/>
+                    <a style={{'textDecoration': 'none'}} href=''>
+                        <div className="card-button btn--block card__btn comment-button">Отправить</div>
+                    </a>
                 </div>
             </div>
         )
