@@ -1,15 +1,3 @@
-@font-face {
-  font-family: 'docker';
-  src: url('../fonts/docker2.ttf');
-}
-@font-face {
-  font-family: 'vertex';
-  src: url('../fonts/vertex1.otf');
-}
-@font-face {
-  font-family: 'unisans';
-  src: url('../fonts/unisans.otf');
-}
 .navbar--styled {
   background-image: linear-gradient(#53067d, #6206b6);
   position: fixed;
@@ -22,7 +10,6 @@
   background: inherit;
 }
 .navbar-brand {
-  font-family: rounds1, fantasy ;
   font-weight: bold;
   letter-spacing: 4px;
   font-size: 30px;

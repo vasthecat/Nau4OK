@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -29,6 +30,17 @@ class Article(models.Model):
     image = models.ImageField(upload_to='article_images/')
     rating = models.IntegerField(default=0)
     n_comments = models.IntegerField(default=0)
+    published_date = models.DateTimeField(auto_now_add=timezone.now)
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    author = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_comments')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='article_comments')
+    published_date = models.DateTimeField(auto_now_add=timezone.now)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text[:20]

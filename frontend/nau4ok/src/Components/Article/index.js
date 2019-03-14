@@ -41,6 +41,8 @@ class Article extends Component {
         }
 
 
+
+
         return (
             <div className="container">
                 <img src={articleImage} alt="Article" className="img-fluid" style={{'paddingTop': '100px'}}/>
@@ -68,11 +70,8 @@ class Article extends Component {
                 {/*<div className="display-4" style={{'margin-top': '60px'}}>Комментарии:</div>*/}
 
                 <LeaveComment/>
+                <Commentary />
 
-                <Commentary/>
-                <Commentary/>
-                <Commentary/>
-                <Commentary/>
 
                 <div style={{'margin-bottom': '50px'}}/>
             </div>

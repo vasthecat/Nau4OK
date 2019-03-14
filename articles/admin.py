@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from articles.models import Article, User
+from articles.models import Article, User, Comment
 from django.contrib.auth.models import Group
 
 
@@ -35,5 +35,5 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(User, UserAdmin)
 admin.site.register(Article)
-
+admin.site.register(Comment)
 admin.site.unregister(Group)
