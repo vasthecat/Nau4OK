@@ -1,29 +1,19 @@
-@profile-avatar-size: 150px;
+@import "style";
+
 @transition-duration: 0.3s;
 
 .profile-section {
   padding-top: 150px;
 }
 
-.profile-container {
-  border-radius: 20px;
-  background: #ffffff;
-  box-shadow: 0 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-}
-
 .profile-avatar {
-  min-width: @profile-avatar-size;
-  min-height: @profile-avatar-size;
-
-  max-width: @profile-avatar-size;
-  max-height: @profile-avatar-size;
-
-  border-radius: 50%;
+  .avatar-big;
 
   transform: translateY(-30%);
   display: flex;
   margin: auto;
 }
+
 
 .user-fullname {
   font-size: 30px;
@@ -47,12 +37,10 @@
 }
 
 .user-activity {
+  .floating-container;
+
   align-self: center;
-  border-radius: 20px;
-  background: #ffffff;
-  padding: 20px;
   margin-bottom: 10px;
-  box-shadow: 0 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
   width: 100%;
 
   -moz-transition: width 1s ease 0s;
@@ -60,7 +48,7 @@
 }
 
 .user-activity:hover {
-  //align-self: center;
+  align-self: center;
   width: 103%;
   padding: 30px;
 

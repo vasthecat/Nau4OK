@@ -11,7 +11,7 @@
   src: url('../fonts/unisans.otf');
 }
 .navbar--styled {
-  background-image: linear-gradient(#8e23bd, #9e65b6);
+  background-image: linear-gradient(#53067d, #6206b6);
   position: fixed;
   left: 0;
   right: 0;

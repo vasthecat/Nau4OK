@@ -12,7 +12,7 @@ class ProfileView extends Component {
         mounted: false
     };
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidMount() {
         let profileID = this.props.match.params.profileID;
 
         if (profileID === undefined) profileID = this.props.userId;

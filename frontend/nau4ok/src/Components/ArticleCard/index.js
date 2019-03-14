@@ -8,7 +8,7 @@ class ArticleCard extends Component {
         return (
             <div className="card">
                 <a href={`/articles/${article.id}`}>
-                    <div className="card__image" style={{'background-image': 'url(' + article.image + ')'}}></div>
+                    <div className="card__image" style={{'background-image': 'url(' + article.image + ')'}}/>
                 </a>
                 <div className="card__content">
                     <div className="card__title">{article.title}</div>

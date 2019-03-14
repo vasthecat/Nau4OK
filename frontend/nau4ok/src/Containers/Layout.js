@@ -68,7 +68,7 @@ class CustomLayout extends React.Component {
                 <footer className="container-fluid">
                     <div className="row">
                         <div className="col-lg-12 offset-md-0 col-md-12 footer-container justify-content-center">
-                            <div className="display-1">НУ ЗДАРОВА Я ФУТЕР</div>
+                            <div className="display-4">НУ ЗДАРОВА Я ФУТЕР</div>
                         </div>
                     </div>
                 </footer>

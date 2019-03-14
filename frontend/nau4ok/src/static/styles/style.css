@@ -3,6 +3,11 @@
 *::after {
   box-sizing: border-box;
 }
+.floating-container {
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+}
 .bg-img {
   position: absolute;
   left: 0;
@@ -20,7 +25,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.8;
+  opacity: 0.85;
   background: #1C1D21;
 }
 .nau4ok-header {
@@ -155,7 +160,7 @@ img {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
 }
-.avatar {
+.avatar-medium {
   border-radius: 50%;
   min-width: 90px;
   max-width: 90px;

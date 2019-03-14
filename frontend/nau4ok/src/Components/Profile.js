@@ -15,13 +15,13 @@ class Profile extends Component {
     }
 
     render() {
-        const img = require('../static/image.jpg')
+        const img = require('../static/images/image.jpg');
         const form = (
             <div className="container">
                 <div className="row">
                     <div className="col-lg-4 col-sm-12">
                         <div className="profile-section">
-                            <div className="profile-container">
+                            <div className="floating-container">
                                 <img src={this.state.user.avatar} alt="" className="profile-avatar"/>
 
                                 <div className="profile-content">

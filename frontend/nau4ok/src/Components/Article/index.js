@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import Commentary from "../Commentary";
+import LeaveComment from "../LeaveComment";
 
 
 class Article extends Component {
@@ -49,7 +51,7 @@ class Article extends Component {
 
                 <div className="my-4 d-flex flex-row">
                     <div className="p-2">
-                        <img src={avatar} alt="User avatar" className="avatar"/>
+                        <img src={avatar} alt="User avatar" className="avatar-medium"/>
                     </div>
                     <div className="d-flex flex-column">
                         <div className="ml-2 mt-1">
@@ -61,8 +63,18 @@ class Article extends Component {
                     </div>
                 </div>
 
-
                 {paragraphs}
+
+                {/*<div className="display-4" style={{'margin-top': '60px'}}>Комментарии:</div>*/}
+
+                <LeaveComment/>
+
+                <Commentary/>
+                <Commentary/>
+                <Commentary/>
+                <Commentary/>
+
+                <div style={{'margin-bottom': '50px'}}/>
             </div>
         );
     }

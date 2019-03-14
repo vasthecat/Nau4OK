@@ -4,6 +4,9 @@ import './static/styles/login_form_style.css'
 import './static/styles/ArrowStyle.css'
 import './static/styles/NavbarStyle.css'
 import './static/styles/ProfileStyle.css'
+import './static/styles/FooterStyle.css'
+import './static/styles/CommentStyle.css'
+
 import 'bootstrap/dist/js/bootstrap'
 import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
