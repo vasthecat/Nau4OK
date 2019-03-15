@@ -1,8 +1,10 @@
+from rest_framework.decorators import permission_classes
+
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from ..models import User
-from .serializers import UserSerializer
-from articles.models import Article
-from .serializers import ArticleSerializer
+
+from articles.api.permissions import CustomPermission
+from .serializers import UserSerializer, ArticleSerializer, CommentSerializer
+from articles.models import Article, User, Comment
 from rest_framework import viewsets
 
 
@@ -14,3 +16,9 @@ class UserViewSet(viewsets.ModelViewSet):
 class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
+
+
+class CommentsViewSet(viewsets.ModelViewSet):
+    serializer_class = CommentSerializer
+    queryset = Comment.objects.all()
+    permission_classes = (CustomPermission,)

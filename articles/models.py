@@ -42,5 +42,8 @@ class Comment(models.Model):
     published_date = models.DateTimeField(auto_now_add=timezone.now)
     text = models.TextField()
 
+    class Meta:
+        ordering = ['-published_date']
+
     def __str__(self):
         return self.text[:20]

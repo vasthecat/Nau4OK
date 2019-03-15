@@ -1,11 +1,24 @@
 import React, {Component} from 'react'
 import Commentary from "../Commentary";
 import LeaveComment from "../LeaveComment";
+import ArticleCard from "../ArticleCard";
+import {withRouter} from "react-router-dom";
+import connect from "react-redux/es/connect/connect";
 
 
 class Article extends Component {
 
+    generateComments() {
+        return this.props.article.article_comments.map(comment => {
+            return (
+                <Commentary comment={comment}/>
+            )
+        });
+    }
+
     render() {
+        const commentElements = this.generateComments();
+
         const {article, author} = this.props;
 
         let articleTitle = 'Default title';
@@ -69,8 +82,9 @@ class Article extends Component {
 
                 {/*<div className="display-4" style={{'margin-top': '60px'}}>Комментарии:</div>*/}
 
-                <LeaveComment/>
-                <Commentary />
+                {this.props.isAuthenticated ? (<LeaveComment/>) : ('')}
+                {commentElements}
+
 
 
                 <div style={{'margin-bottom': '50px'}}/>
@@ -79,5 +93,10 @@ class Article extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.token !== null,
+    }
+};
 
-export default Article;
+export default withRouter(connect(mapStateToProps)(Article));

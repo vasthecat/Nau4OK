@@ -8,7 +8,7 @@ from rest_framework.authtoken.models import Token
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ('author', 'published_date', 'text')
+        fields = ('author', 'published_date', 'article', 'text')
 
 
 class ArticleSerializer(serializers.ModelSerializer):

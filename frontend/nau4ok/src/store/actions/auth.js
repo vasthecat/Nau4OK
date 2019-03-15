@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
+import * as constants from '../../constants';
 
 export const searchChanged = text => {
     return {
@@ -48,7 +49,7 @@ export const authLogin = (username, password) => {
     return dispatch => {
         dispatch(authStart());
 
-        axios.post('http://karmanline.ddns.net:8000/rest-auth/login/', {
+        axios.post(`${constants.LOCALHOST}/rest-auth/login/`, {
             username: username,
             password: password
         })
@@ -85,7 +86,7 @@ export const authSignup = (username, first_name, last_name, email, password1, pa
         const user = {
             username, first_name, last_name, email, password1, password2, is_author
         };
-        axios.post('http://karmanline.ddns.net:8000/rest-auth/registration/', user)
+        axios.post(`${constants.LOCALHOST}/rest-auth/registration/`, user)
             .then(res => {
                 const user = {
                     token: res.data.key,

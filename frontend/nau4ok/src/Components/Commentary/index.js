@@ -1,25 +1,50 @@
 import React, {Component} from 'react'
+import axios from "axios";
+import * as constants from "../../constants";
 
 export default class Commentary extends Component {
+    state = {
+        author: {},
+        mounted: false
+    };
+
+    componentWillMount() {
+        const userID = this.props.comment.author;
+
+
+        axios.get(`${constants.LOCALHOST}/api/users/${userID}`).then(res => {
+            this.setState({
+                author: res.data,
+                mounted: true
+            });
+        });
+    }
 
     render() {
-        const img = require('../../static/images/avatar.jpg');
+        const {comment} = this.props;
+
+        let avatar = require('../../static/images/image.jpg');
+        const author = this.state.author;
+
+        if (author.avatar) {
+            avatar = author.avatar;
+        }
+
+        let fullName = author.username;
+
+        if (author.first_name && author.last_name) {
+            fullName = author.first_name + ' ' + author.last_name;
+        }
 
         return (
             <div className="floating-container comment-container">
-                <img src={img} className="avatar-medium comment-avatar"/>
+                <img src={avatar} className="avatar-medium comment-avatar"/>
                 <div className="comment-content">
-                    <div className="comment-username">Username</div>
+                    <div className="comment-username">{fullName}</div>
                     <div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in lacus eget libero blandit
-                        ornare at non nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                        himenaeos. Maecenas eros nibh, placerat eget arcu sit amet, eleifend tristique elit. Maecenas a diam
-                        eu quam aliquet lobortis nec eget lectus. Pellentesque eget accumsan arcu, vel fringilla nunc. Nunc
-                        rhoncus a purus ultricies pulvinar. Vestibulum et magna mi. Mauris augue libero, rhoncus vel consequat
-                        sed, vulputate nec turpis. Fusce in odio elementum, lobortis ipsum sit amet, dignissim mi. Suspendisse
-                        quis odio bibendum, consequat est ut, ultricies nibh. Nam bibendum faucibus risus vel pulvinar. Curabitur
-                        vestibulum, augue non efficitur euismod, elit nisi porttitor tortor, eu porta massa nisi a eros. Aliquam
-                        et egestas dolor. Proin in condimentum justo.
+                        {comment.text}
+                        <br/>
+                        {comment.published_date}
                     </div>
                 </div>
             </div>
