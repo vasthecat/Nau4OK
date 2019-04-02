@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
 import Commentary from "../Commentary";
 import LeaveComment from "../LeaveComment";
-import ArticleCard from "../ArticleCard";
 import {withRouter} from "react-router-dom";
 import connect from "react-redux/es/connect/connect";
+import {LOCALHOST} from "../../constants";
 
 
 class Article extends Component {
+
+    state = {
+        comments: []
+    };
 
     generateComments() {
         return this.props.article.article_comments.map(comment => {
@@ -16,56 +20,41 @@ class Article extends Component {
         });
     }
 
-    render() {
-        const commentElements = this.generateComments();
+    componentDidMount() {
+        this.setState({
+            comments: this.generateComments()
+        })
+    }
 
+    render() {
         const {article, author} = this.props;
 
-        let articleTitle = 'Default title';
+        let articleTitle = article.title ? article.title : 'Title is not specified';
+        let articleImage = article.image ? article.image : require('../../static/images/image.jpg');
+        let avatar = author.avatar ? author.avatar : require('../../static/images/default-avatar.png');
 
-        if (article.title) {
-            articleTitle = article.title;
-        }
-
-        let paragraphs = <p>There is not article.</p>;
-
-        if (article.text) {
-            paragraphs = article.text.split('\n').map(par => {
+        let paragraphs = article.text ? (
+            article.text.split('\n').map(par => {
                 if (par.toString().startsWith('[img')) {
                     let s = par.toString();
                     const l = s.slice(1, s.length - 2).split('|');
 
                     return (
                         <p style={{'margin-bottom': '50px'}}>
-                            <img src={l[1]} alt={l[2]} className="article-image-inline"/>
+                            <img src={LOCALHOST + l[1]} alt={l[2]} className="article-image-inline"/>
                             <div className="display-4 text-center article-image-caption">{l[2]}</div>
                         </p>
                     )
                 }
                 return <p className="paragraph">{par}</p>
-            });
-        }
+            })
+        ) : <p>There is not article.</p>;
 
-        let articleImage = require('../../static/images/image.jpg');
-
-        if (article.image) {
-            articleImage = article.image;
-        }
-
-        let fullName = 'Author is not specified';
-
+        let fullName = author.username;
         if (author.first_name && author.last_name) {
             fullName = author.first_name + ' ' + author.last_name;
         }
-
-        let avatar = require('../../static/images/image.jpg');
-
-        if (author.avatar) {
-            avatar = author.avatar;
-        }
-
-
-
+        console.log(author);
 
         return (
             <div className="container">
@@ -85,18 +74,14 @@ class Article extends Component {
                                 <h2>{fullName}</h2>
                             </div>
                         </div>
-                        <div className="ml-2 mt-1">An journalist</div>
+                        <div className="ml-2 mt-1">{author.bio}</div>
                     </div>
                 </div>
 
                 {paragraphs}
 
-                {/*<div className="display-4" style={{'margin-top': '60px'}}>Комментарии:</div>*/}
-
                 {this.props.isAuthenticated ? (<LeaveComment/>) : ('')}
-                {commentElements}
-
-
+                {this.state.comments}
 
                 <div style={{'margin-bottom': '50px'}}/>
             </div>

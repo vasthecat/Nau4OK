@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ArticleCard from "./ArticleCard";
+import {LOCALHOST} from "../constants";
 
 
 class Profile extends Component {
@@ -15,14 +16,18 @@ class Profile extends Component {
     }
 
     render() {
-        const img = require('../static/images/image.jpg');
+        let userAvatar = this.state.user.avatar;
+        const profileAvatar = userAvatar ? userAvatar : require('../static/images/default-avatar.png');
+        const articleImage = require('../static/images/image.jpg');
+        console.log(profileAvatar);
+
         const form = (
             <div className="container">
                 <div className="row">
                     <div className="col-lg-4 col-sm-12">
                         <div className="profile-section">
                             <div className="floating-container">
-                                <img src={this.state.user.avatar} alt="" className="profile-avatar"/>
+                                <img src={profileAvatar} alt="" className="profile-avatar"/>
 
                                 <div className="profile-content">
                                     <div className="user-fullname">{this.state.user.first_name} {this.state.user.last_name}</div>
@@ -61,7 +66,7 @@ class Profile extends Component {
                             </div>
 
                             <div className="profile-article">
-                                <ArticleCard article={{'id': '1', 'title': 'Здарова', 'description': 'lorem ipsum', 'image': img}} />
+                                <ArticleCard article={{'id': '1', 'title': 'Здарова', 'description': 'lorem ipsum', 'image': articleImage}} />
                             </div>
 
                             <div className="user-activity">
@@ -84,10 +89,6 @@ class Profile extends Component {
                 </div>
             </div>
         );
-
-        return (
-            <div className="display-1" style={{'paddingTop': '100px'}}>{this.state.user.username}</div>
-        )
     }
 
 }

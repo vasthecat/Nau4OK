@@ -23,7 +23,7 @@ export default class Commentary extends Component {
     render() {
         const {comment} = this.props;
 
-        let avatar = require('../../static/images/image.jpg');
+        let avatar = require('../../static/images/default-avatar.png');
         const author = this.state.author;
 
         if (author.avatar) {

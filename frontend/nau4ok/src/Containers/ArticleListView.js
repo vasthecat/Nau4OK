@@ -59,14 +59,10 @@ class ArticleList extends Component {
                     <div className="header-wrapper text-center">
                         <div className="header-content container">
                             <div className="col-md-10 offset-md-1">
-                                <div className="display-4 text-center">Lorem ipsum dolor sit amet</div>
+                                <div className="display-4 text-center">Научок.рф - новые статьи о науке</div>
                                 <p className="text-center">
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Morbi maximus risus at sapien dapibus, eget tempus felis tempor.
-                                    Aliquam erat volutpat. Vivamus at felis diam. Aliquam fringilla odio arcu, sit
-                                    amet venenatis purus commodo sit amet. Praesent tristique a justo at condimentum.
-                                    Integer vitae arcu quis felis fermentum tincidunt a a ligula. Nulla pretium purus
-                                    ut ante venenatis, condimentum varius sapien luctus.
+                                    На этом сайте вы каждый день сможете получать новые и интересные статьи, которые
+                                    пишут не только редакторы и модераторы, но и обычные пользователи. Присоединяйтесь!
                                 </p>
                             </div>
                         </div>
@@ -78,16 +74,13 @@ class ArticleList extends Component {
                                 <div className="chevron"/>
                                 <div className="chevron"/>
                                 <div className="chevron"/>
-                                <span className="arrow-text">Scroll to articles</span>
+                                <span className="arrow-text">Перейти к статьям</span>
                             </div>
                         </div>
                     </Scrollchor>
                 </header>
 
                 <div className="container" id="articleList" style={{'minHeight': '93vh', 'paddingTop': '7vh'}}>
-                    <div className="display-4 col-md-10 offset-md-1 text-center my-5" >
-                        You may be interested:
-                    </div>
                     <ul className="cards">
                         {articleElements}
                     </ul>

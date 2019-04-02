@@ -3,6 +3,7 @@ import {withRouter} from "react-router-dom";
 import connect from "react-redux/es/connect/connect";
 import axios from 'axios'
 import * as constants from '../../constants'
+import {LOCALHOST} from "../../constants";
 
 class LeaveComment extends Component {
     state = {
@@ -16,6 +17,8 @@ class LeaveComment extends Component {
             text: this.state.commentText,
         }, {
             headers: {'Authorization': 'Token ' + this.props.token}
+        }).then(response => {
+            window.location.reload()
         })
     };
 
@@ -27,10 +30,7 @@ class LeaveComment extends Component {
     };
 
     render() {
-        let avatar = require('../../static/images/avatar.jpg');
-        if (this.props.avatar) {
-            avatar = this.props.avatar;
-        }
+        let avatar = this.props.avatar ? LOCALHOST + this.props.avatar : require('../../static/images/default-avatar.png');
 
         return (
             <div className="floating-container comment-container">
@@ -39,11 +39,10 @@ class LeaveComment extends Component {
                     <div className="comment-username">Оставьте ваш комментарий</div>
                     <textarea placeholder={"Ваш комментарий"} className="comment-textarea"
                               onChange={this.changeCommentText}/>
-                    <a style={{textDecoration: 'none'}} href=''>
-                        <div onClick={this.leaveComment}
-                             className="card-button btn--block card__btn comment-button">Отправить
-                        </div>
-                    </a>
+
+                    <div onClick={this.leaveComment} className="card-button btn--block card__btn comment-button">
+                        Отправить
+                    </div>
                 </div>
             </div>
         )

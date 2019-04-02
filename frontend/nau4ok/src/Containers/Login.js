@@ -38,28 +38,24 @@ class NormalLoginForm extends React.Component {
                     </figure>
 
                     <div className="sign-in-form">
-                        <h2 className="form-title">Sign in</h2>
+                        <h2 className="form-title">Вход</h2>
                         <form onSubmit={this.handleSubmit} className="register-form" id="register-form">
                             <div className="form-group">
                                 {getFieldDecorator('userName', {
-                                    rules: [{ required: true, message: 'Please input your username!' }],
+                                    rules: [{ required: true, message: 'Введите свой никнейм!' }],
                                 })(
-                                    <input className="form-input" type="text" placeholder="Your Name"/>
+                                    <input className="form-input" type="text" placeholder="Никнейм"/>
                                 )}
                             </div>
                             <div className="form-group">
                                 {getFieldDecorator('password', {
-                                    rules: [{ required: true, message: 'Please input your Password!' }],
+                                    rules: [{ required: true, message: 'Введите свой пароль!' }],
                                 })(
-                                    <input className="form-input" type="password" placeholder="Password"/>
+                                    <input className="form-input" type="password" placeholder="Пароль"/>
                                 )}
                             </div>
-                            <div className="form-group">
-                                <input className="form-input-checkbox" type="checkbox" name="remember-me" id="remember-me"/>
-                                <label className="pl-2" htmlFor="remember-me">Remember me</label>
-                            </div>
                             <div className="form-group px-1">
-                                <input className="card-button btn--block" type="submit" name="signin" id="signin" value="Log in"/>
+                                <input className="card-button btn--block" type="submit" name="signin" id="signin" value="Войти"/>
                             </div>
                         </form>
                     </div>
@@ -87,12 +83,12 @@ const mapStateToProps = (state) => {
         loading: state.loading,
         error: state.error,
     }
-}
+};
 
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: (username, password) => dispatch(actions.authLogin(username, password))
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(WrappedNormalLoginForm);
