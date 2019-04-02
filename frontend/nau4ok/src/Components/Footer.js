@@ -12,15 +12,15 @@ export default class Footer extends Component {
                     <div className="col-lg-4" style={{'margin-bottom': '30px'}}>
                         <div className="footer-heading">Навигация</div>
                         <div className="footer-list">
-                            <a href="#" className="footer-link">
+                            <a href="/" className="footer-link">
                                 Научок.рф
                             </a>
 
-                            <a href="/login" className="footer-link">
+                            <a href="/войти" className="footer-link">
                                 Войти в систему
                             </a>
 
-                            <a href="/signup" className="footer-link">
+                            <a href="/регистрация" className="footer-link">
                                 Зарегистрироваться
                             </a>
                         </div>

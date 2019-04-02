@@ -32,6 +32,7 @@ class ProfileView extends Component {
 
     render() {
         if (this.state.mounted) {
+            console.log(this.state.user)
             return (
                 <Profile user={this.state.user}/>
             )

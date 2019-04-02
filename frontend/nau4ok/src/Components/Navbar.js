@@ -23,7 +23,7 @@ export default class Navbar extends Component {
                         )} alt="User avatar" className="avatar-mini"/>
                     </a>
                     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a className="dropdown-item" href="/profile">Профиль</a>
+                        <a className="dropdown-item" href="/профиль">Профиль</a>
                         <div className="dropdown-divider"/>
                         <a className="dropdown-item" href="" onClick={logout}>Выйти</a>
                     </div>
@@ -34,14 +34,14 @@ export default class Navbar extends Component {
         const loginButton = (
             <ul className="navbar-nav mt-2 mt-md-0">
                 <li className="nav-item mx-1">
-                    <a href='/login' style={{'color': 'white'}}>
+                    <a href='/войти' style={{'color': 'white'}}>
                         <div className="btn my-2 my-sm-0 login-button">
                             Войти
                         </div>
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a href='/signup' style={{'color': 'white'}}>
+                    <a href='/регистрация' style={{'color': 'white'}}>
                         <div tabIndex="0" className="btn my-2 my-sm-0 signup-button">
                             Регистрация
                         </div>
