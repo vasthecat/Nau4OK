@@ -26,6 +26,8 @@ class RegistrationForm extends React.Component {
                     values.confirm,
                 );
                 // this.props.history.push("/");
+            } else {
+                console.log(err);
             }
         });
     };
@@ -175,35 +177,76 @@ class RegistrationForm extends React.Component {
                         <div className="sign-in-form">
                             <h2 className="form-title">Sign up</h2>
                             <form onSubmit={this.handleSubmit} className="register-form" id="register-form">
-
                                 <div className="form-group">
-                                        <input className="form-input" type="text" placeholder="Your Usernameame"/>
+                                    {getFieldDecorator("userName", {
+                                        rules: [{required: true, message: "Please input your username!"}]
+                                    })(
+                                        <input className="form-input" type="text" placeholder="Your Username"/>
+                                    )}
                                 </div>
                                 <div className="form-group" style={{'display': 'flex'}}>
-                                    <input className="form-input flex-fill mr-1" type="text" placeholder="Your Name" style={{'width': '50%'}}/>
-                                    <input className="form-input flex-fill ml-1" type="text" placeholder="Your Last Name" style={{'width': '50%'}}/>
-                                </div>
-                                <div className="form-group">
-                                    <input className="form-input" type="email" placeholder="Your E-mail"/>
-                                </div>
-                                <div className="form-group">
-                                        <input className="form-input" type="password" placeholder="Password"/>
-                                </div>
-                                <div className="form-group">
-                                        <input className="form-input" type="password" placeholder="Repeat password"/>
-                                </div>
+                                    {getFieldDecorator("firstName", {
+                                        rules: [{required: true, message: "Please input your first name!"}]
+                                    })(
+                                        <input className="form-input flex-fill mr-1" type="text" placeholder="Your Name" style={{'width': '50%'}}/>
+                                    )}
 
-                                <div className="form-group ml-1" style={{'display': 'flex'}}>
-                                    <input className="form-input-checkbox" type="checkbox" name="agree-terms" id="agree-terms"/>
-                                    <label className="pl-2" htmlFor="agree-terms" style={{'white-space': 'nowrap'}}>
-                                        I agree all statements in  <a href="#">Terms of service</a>
-                                    </label>
+                                    {getFieldDecorator("lastName", {
+                                        rules: [{required: true, message: "Please input your last name!"}]
+                                    })(
+                                        <input className="form-input flex-fill ml-1" type="text" placeholder="Your Last Name" style={{'width': '50%'}}/>
+                                    )}
+                                </div>
+                                <div className="form-group">
+                                    {getFieldDecorator("email", {
+                                        rules: [
+                                            {
+                                                type: "email",
+                                                message: "The input is not valid E-mail!"
+                                            },
+                                            {
+                                                required: true,
+                                                message: "Please input your E-mail!"
+                                            }
+                                        ]
+                                    })(
+                                        <input className="form-input" type="email" placeholder="Your E-mail"/>
+                                    )}
+                                </div>
+                                <div className="form-group">
+                                    {getFieldDecorator("password", {
+                                        rules: [
+                                            {
+                                                required: true,
+                                                message: "Please input your password!"
+                                            },
+                                            {
+                                                validator: this.validateToNextPassword
+                                            }
+                                        ]
+                                    })(
+                                        <input className="form-input" type="password" placeholder="Password"/>
+                                    )}
+                                </div>
+                                <div className="form-group">
+                                    {getFieldDecorator("confirm", {
+                                        rules: [
+                                            {
+                                                required: true,
+                                                message: "Please confirm your password!"
+                                            },
+                                            {
+                                                validator: this.compareToFirstPassword
+                                            }
+                                        ]
+                                    })(
+                                        <input className="form-input" type="password" placeholder="Repeat password"/>
+                                    )}
                                 </div>
 
                                 <div className="form-group px-1">
                                     <input className="card-button btn--block" type="submit" name="signup" id="signup" value="Sign up"/>
                                 </div>
-                                
                             </form>
                         </div>
 

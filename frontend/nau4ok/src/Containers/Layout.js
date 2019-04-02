@@ -48,7 +48,9 @@ class CustomLayout extends React.Component {
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark navbar--styled">
                     <div className="container my-1">
-                        <a className="navbar-brand" href="/">НаучОК</a>
+                        <a className="navbar-brand" href="/">
+                            <img src={require('../static/images/Logo.png')} style={{'min-height': '50px', 'max-height': '50px'}}/>
+                        </a>
 
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"

@@ -31,6 +31,17 @@ class Article extends Component {
 
         if (article.text) {
             paragraphs = article.text.split('\n').map(par => {
+                if (par.toString().startsWith('[img')) {
+                    let s = par.toString();
+                    const l = s.slice(1, s.length - 2).split('|');
+
+                    return (
+                        <p style={{'margin-bottom': '50px'}}>
+                            <img src={l[1]} alt={l[2]} className="article-image-inline"/>
+                            <div className="display-4 text-center article-image-caption">{l[2]}</div>
+                        </p>
+                    )
+                }
                 return <p className="paragraph">{par}</p>
             });
         }
@@ -58,7 +69,7 @@ class Article extends Component {
 
         return (
             <div className="container">
-                <img src={articleImage} alt="Article" className="img-fluid" style={{'paddingTop': '100px'}}/>
+                <img src={articleImage} alt="Article" className="img-fluid article-main-image mx-auto"/>
 
                 <h1 className="display-3 mt-5">
                     {articleTitle}
