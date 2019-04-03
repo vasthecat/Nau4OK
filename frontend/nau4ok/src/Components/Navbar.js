@@ -5,7 +5,7 @@ import {LOCALHOST} from "../constants";
 export default class Navbar extends Component {
 
     render() {
-        const {user, logout, handleSearch, isAuthenticated} = this.props;
+        const {user, logout, handleSearch, isAuthenticated, isFormRoute} = this.props;
 
         const nau4okLogo = require('../static/images/Logo.png');
 
@@ -65,7 +65,8 @@ export default class Navbar extends Component {
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <input className="mx-auto search-form" type="search" placeholder="Поиск" aria-label="Search" onChange={this.props.handleSearch}/>
+                        <input className="mx-auto search-form" type="search" placeholder="Поиск" aria-label="Search"
+                               onChange={this.props.handleSearch} style={isFormRoute ? {'visibility':'hidden'} : {}}/>
                         {this.props.isAuthenticated ? (signedInButtons) : (loginButton)}
                     </div>
                 </div>
