@@ -8,9 +8,11 @@ import Navbar from './../Components/Navbar'
 class CustomLayout extends React.Component {
 
     render() {
+        let tagPath = '/' !== this.props.location.pathname 
+
         return (
             <div>
-                <Navbar user={this.props.user} logout={this.props.logout} handleSearch={this.props.handleSearch} isAuthenticated={this.props.isAuthenticated}/>
+                <Navbar user={this.props.user} logout={this.props.logout} handleSearch={this.props.handleSearch} isAuthenticated={this.props.isAuthenticated} isFormRoute={tagPath}/>
                 {this.props.children}
                 <Footer/>
             </div>
