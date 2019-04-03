@@ -1,4 +1,11 @@
 import React, {Component} from 'react'
+import ArticleCard from "./ArticleCard";
+import {LOCALHOST} from "../constants";
+import Commentary from "./Commentary";
+import {AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios} from 'react-axios'
+
+import axios from "axios";
+import * as constants from "../constants";
 
 
 class Profile extends Component {
@@ -7,6 +14,43 @@ class Profile extends Component {
         user: {}
     };
 
+    generateComments() {
+        if (this.props.user.user_comments.length === 0) {
+            return (<div className="user-activity">
+                <div className="activity-content"><h3 align="center">Нет активности</h3></div>
+            </div>)
+        }
+
+        return this.props.user.user_comments.map(comment => {
+            return (
+                <div className="user-activity">
+                    <Get url={`${constants.LOCALHOST}/api/articles/${comment.article}`}>
+                        {(error, response, isLoading, makeRequest, axios) => {
+                            if (error) {
+                                return null
+                            }
+                            else if (isLoading) {
+                                return null
+                            }
+                            else if (response !== null) {
+                                return (<div className="activity-content">
+                                    <h4>Пользователь {this.state.user.username} оставил комментарий к статье: </h4><h4>
+                                    <a href={`/articles/${comment.article}`}>{response.data.title}</a></h4>
+                                    <b>Комментарий</b>: {comment.text}
+                                </div>)
+                            }
+                            return (<div>Default message before request is made.</div>)
+
+                        }}
+                    </Get>
+
+
+                </div>
+
+            )
+        });
+    }
+
     componentWillMount() {
         this.setState({
             user: this.props.user
@@ -14,46 +58,40 @@ class Profile extends Component {
     }
 
     render() {
-        const form = (
-            <section className="sign-in">
-                <div className="sign-in-container">
-                    <div className="sign-in-content display-flex">
-                        <div className="sign-in-form">
-                            <h2 className="form-title">User</h2>
-                            <form className="register-form">
+        let userAvatar = this.state.user.avatar;
+        const profileAvatar = userAvatar ? userAvatar : require('../static/images/default-avatar.png');
+        const articleImage = require('../static/images/image.jpg');
 
-                                <div className="form-group">
-                                        <input className="form-input" type="text" placeholder={this.state.user.username}/>
-                                </div>
-                                <div className="form-group" style={{'display': 'flex'}}>
-                                    <input className="form-input flex-fill mr-1" type="text" placeholder={this.state.user.first_name} style={{'width': '50%'}}/>
-                                    <input className="form-input flex-fill ml-1" type="text" placeholder={this.state.user.last_name} style={{'width': '50%'}}/>
-                                </div>
-                                <div className="form-group">
-                                    <input className="form-input" type="email" placeholder={this.state.user.email}/>
-                                </div>
 
-                            </form>
+        return (
+            <div className="login-bg">
+                <div className="login-overlay">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-4 col-sm-12">
+                                <div className="profile-section">
+                                    <div className="floating-container">
+                                        <img src={profileAvatar} alt="" className="profile-avatar"/>
+
+                                        <div className="profile-content">
+                                            <div
+                                                className="user-fullname">{this.state.user.first_name} {this.state.user.last_name}</div>
+                                            <div>Username: {this.state.user.username}</div>
+                                            <div>E-mail: {this.state.user.email}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-8 col-sm-12">
+                                <section className="activities">
+                                    {this.generateComments()}
+                                </section>
+                            </div>
                         </div>
-
-                        <figure className="signup-image">
-                            <img src={this.state.user.avatar} alt="" style={{'min-width': '300px', 'max-width': '300px', 'min-height': '300px', 'max-height': '300px'}}/>
-                        </figure>
                     </div>
                 </div>
-            </section>
-        );
-
-        return (
-            <div>
-                <div className="login-bg"><div className="login-overlay"></div></div>
-                {form}
             </div>
         );
-
-        return (
-            <div className="display-1" style={{'paddingTop': '100px'}}>{this.state.user.username}</div>
-        )
     }
 
 }

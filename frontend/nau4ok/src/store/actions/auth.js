@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
+import * as constants from '../../constants';
 
 export const searchChanged = text => {
     return {
@@ -48,7 +49,7 @@ export const authLogin = (username, password) => {
     return dispatch => {
         dispatch(authStart());
 
-        axios.post('http://karmanline.ddns.net:8000/rest-auth/login/', {
+        axios.post(`${constants.LOCALHOST}/rest-auth/login/`, {
             username: username,
             password: password
         })
@@ -63,12 +64,12 @@ export const authLogin = (username, password) => {
                     location: res.data.user_info.location,
                     avatar: res.data.user_info.avatar,
                     is_author: res.data.user_info.is_author,
-                    expirationDate: new Date(new Date().getTime() + 3600 * 1000)
+                    expirationDate: new Date(new Date().getTime() + 86400 * 1000)
                 };
                 localStorage.setItem("user", JSON.stringify(user));
 
                 dispatch(authSuccess(user));
-                dispatch(checkAuthTimeout(3600));
+                dispatch(checkAuthTimeout(86400));
             })
             .catch(err => {
                 dispatch(authFail(err))
@@ -85,7 +86,7 @@ export const authSignup = (username, first_name, last_name, email, password1, pa
         const user = {
             username, first_name, last_name, email, password1, password2, is_author
         };
-        axios.post('http://karmanline.ddns.net:8000/rest-auth/registration/', user)
+        axios.post(`${constants.LOCALHOST}/rest-auth/registration/`, user)
             .then(res => {
                 const user = {
                     token: res.data.key,
@@ -97,13 +98,13 @@ export const authSignup = (username, first_name, last_name, email, password1, pa
                     location: res.data.user_info.location,
                     avatar: res.data.user_info.avatar,
                     is_author: res.data.user_info.is_author,
-                    expirationDate: new Date(new Date().getTime() + 3600 * 1000)
+                    expirationDate: new Date(new Date().getTime() + 86400 * 1000)
                 };
 
                 localStorage.setItem("user", JSON.stringify(user));
 
                 dispatch(authSuccess(user));
-                dispatch(checkAuthTimeout(3600));
+                dispatch(checkAuthTimeout(86400));
             })
             .catch(err => {
                 dispatch(authFail(err))

@@ -9,24 +9,30 @@ class ProfileView extends Component {
 
     state = {
         user: {},
-        mounted: false
+        mounted: false,
+        profileID: null
     };
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate() {
+        if (this.state.profileID !== null) return;
+
         let profileID = this.props.match.params.profileID;
 
         if (profileID === undefined) profileID = this.props.userId;
+        console.log(profileID);
 
         axios.get(`${constants.LOCALHOST}/api/users/${profileID}`).then(res => {
             this.setState({
                 user: res.data,
-                mounted: true
+                mounted: true,
+                profileID: profileID
             });
         });
     }
 
     render() {
         if (this.state.mounted) {
+            console.log(this.state.user);
             return (
                 <Profile user={this.state.user}/>
             )

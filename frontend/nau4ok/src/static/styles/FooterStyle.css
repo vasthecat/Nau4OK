@@ -1,0 +1,32 @@
+.footer-container {
+  background: #2f2f2f;
+}
+.footer-container {
+  padding: 50px 50px 0;
+  display: flex;
+}
+.footer-heading {
+  font-size: 45px;
+  color: white;
+}
+.footer-list {
+  display: flex;
+  flex-direction: column;
+}
+.footer-link {
+  font-size: 27px;
+  color: #6b6b6b;
+}
+.footer-link:hover {
+  color: #818181;
+  text-decoration: none;
+}
+.footer-link:focus {
+  color: #919191;
+  text-decoration: none;
+}
+.footer-digitalwind {
+  font-size: 27px;
+  color: white;
+}
+/*# sourceMappingURL=FooterStyle.css.map */

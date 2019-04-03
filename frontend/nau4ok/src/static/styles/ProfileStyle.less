@@ -1,0 +1,64 @@
+@import "style";
+
+@transition-duration: 0.3s;
+
+.profile-section {
+  padding-top: 150px;
+}
+
+.profile-avatar {
+  .avatar-big;
+
+  transform: translateY(-30%);
+  display: flex;
+  margin: auto;
+}
+
+
+.user-fullname {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.profile-content {
+  padding: 0 30px 75px;
+  display: flex;
+  flex-direction: column;
+}
+
+.activities {
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 990px) {
+    padding-top: 10px;
+  }
+}
+
+.user-activity {
+  .floating-container;
+
+  align-self: center;
+  margin-bottom: 10px;
+  width: 100%;
+
+  -moz-transition: width 1s ease 0s;
+  transition: width @transition-duration ease 0s, padding @transition-duration ease 0s;
+}
+
+.user-activity:hover {
+  align-self: center;
+  width: 103%;
+  padding: 30px;
+
+  transition: width @transition-duration ease 0s, padding @transition-duration ease 0s;
+}
+
+.activity-content {
+  align-content: center;
+}
+
+.profile-article {
+  margin-bottom: 10px;
+}

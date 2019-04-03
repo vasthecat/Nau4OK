@@ -1,21 +1,18 @@
 import React from "react";
-import {Form, Input, Icon, Button, Select} from "antd";
+import {Form} from "antd";
 import {connect} from "react-redux";
-import {NavLink} from "react-router-dom";
 import * as actions from "../store/actions/auth";
-
-const FormItem = Form.Item;
-const Option = Select.Option;
 
 class RegistrationForm extends React.Component {
     state = {
-        confirmDirty: false
+        confirmDirty: false,
+        erv: ''
     };
 
     handleSubmit = e => {
+        let errorMsg = '';
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            console.log(values);
             if (!err) {
                 this.props.onAuth(
                     values.userName,
@@ -25,7 +22,9 @@ class RegistrationForm extends React.Component {
                     values.password,
                     values.confirm,
                 );
-                // this.props.history.push("/");
+
+            } else {
+                this.setState({erv: err.confirm.errors[0].message})
             }
         });
     };
@@ -38,7 +37,7 @@ class RegistrationForm extends React.Component {
     compareToFirstPassword = (rule, value, callback) => {
         const form = this.props.form;
         if (value && value !== form.getFieldValue("password")) {
-            callback("Two passwords that you enter is inconsistent!");
+            callback("Пароли не совпадают!");
         } else {
             callback();
         }
@@ -52,173 +51,140 @@ class RegistrationForm extends React.Component {
         callback();
     };
 
+    generateErrors() {
+        return this.props.user.user_comments.map(comment => {
+
+        });
+    }
+
     render() {
         const {getFieldDecorator} = this.props.form;
+        let errorMessage = '';
 
-        const deprecatedForm = (
-            <Form onSubmit={this.handleSubmit} style={{'padding-top': 200}}>
-                <FormItem>
-                    {getFieldDecorator("userName", {
-                        rules: [{required: true, message: "Please input your username!"}]
-                    })(
-                        <Input
-                            prefix={<Icon type="user" style={{color: "rgba(0,0,0,.25)"}}/>}
-                            placeholder="Username"
-                        />
-                    )}
-                </FormItem>
+        if (this.props.error) {
+            let error = this.props.error.response.data;
+            if ('password1' in error){
+                error.password1.map(e => {
+                    errorMessage += e.toString() + '\n';
+                })
+            }
+            if ('username' in error){
+                errorMessage = 'Пользователь с таким никнеймом уже существует!'
+            }
 
-                <FormItem>
-                    {getFieldDecorator("firstName", {
-                        rules: [{required: true, message: "Please input your first name!"}]
-                    })(
-                        <Input
-                            prefix={<Icon type="user" style={{color: "rgba(0,0,0,.25)"}}/>}
-                            placeholder="First name"
-                        />
-                    )}
-                </FormItem>
+            if ('email' in error){
+                errorMessage = 'Пользователь с таким e-mail адресом уже зарегистрирован.'
+            }
+        }
 
-                <FormItem>
-                    {getFieldDecorator("lastName", {
-                        rules: [{required: true, message: "Please input your last name!"}]
-                    })(
-                        <Input
-                            prefix={<Icon type="user" style={{color: "rgba(0,0,0,.25)"}}/>}
-                            placeholder="Last name"
-                        />
-                    )}
-                </FormItem>
+        if (this.props.token){
+            this.props.history.push('/');
+        }
 
-                <FormItem>
-                    {getFieldDecorator("email", {
-                        rules: [
-                            {
-                                type: "email",
-                                message: "The input is not valid E-mail!"
-                            },
-                            {
-                                required: true,
-                                message: "Please input your E-mail!"
-                            }
-                        ]
-                    })(
-                        <Input
-                            prefix={<Icon type="mail" style={{color: "rgba(0,0,0,.25)"}}/>}
-                            placeholder="Email"
-                        />
-                    )}
-                </FormItem>
-
-                <FormItem>
-                    {getFieldDecorator("password", {
-                        rules: [
-                            {
-                                required: true,
-                                message: "Please input your password!"
-                            },
-                            {
-                                validator: this.validateToNextPassword
-                            }
-                        ]
-                    })(
-                        <Input
-                            prefix={<Icon type="lock" style={{color: "rgba(0,0,0,.25)"}}/>}
-                            type="password"
-                            placeholder="Password"
-                        />
-                    )}
-                </FormItem>
-
-                <FormItem>
-                    {getFieldDecorator("confirm", {
-                        rules: [
-                            {
-                                required: true,
-                                message: "Please confirm your password!"
-                            },
-                            {
-                                validator: this.compareToFirstPassword
-                            }
-                        ]
-                    })(
-                        <Input
-                            prefix={<Icon type="lock" style={{color: "rgba(0,0,0,.25)"}}/>}
-                            type="password"
-                            placeholder="Password"
-                            onBlur={this.handleConfirmBlur}
-                        />
-                    )}
-                </FormItem>
-
-
-                <FormItem>
-                    <Button
-                        type="primary"
-                        htmlType="submit"
-                        style={{marginRight: "10px"}}
-                    >
-                        Signup
-                    </Button>
-                    Or
-                    <NavLink style={{marginRight: "10px"}} to="/login/">
-                        login
-                    </NavLink>
-                </FormItem>
-            </Form>
-        );
-
-        const form = (
-            <section className="sign-in">
-                <div className="sign-in-container">
-                    <div className="sign-in-content display-flex">
-                        <div className="sign-in-form">
-                            <h2 className="form-title">Sign up</h2>
-                            <form onSubmit={this.handleSubmit} className="register-form" id="register-form">
-
-                                <div className="form-group">
-                                        <input className="form-input" type="text" placeholder="Your Usernameame"/>
-                                </div>
-                                <div className="form-group" style={{'display': 'flex'}}>
-                                    <input className="form-input flex-fill mr-1" type="text" placeholder="Your Name" style={{'width': '50%'}}/>
-                                    <input className="form-input flex-fill ml-1" type="text" placeholder="Your Last Name" style={{'width': '50%'}}/>
-                                </div>
-                                <div className="form-group">
-                                    <input className="form-input" type="email" placeholder="Your E-mail"/>
-                                </div>
-                                <div className="form-group">
-                                        <input className="form-input" type="password" placeholder="Password"/>
-                                </div>
-                                <div className="form-group">
-                                        <input className="form-input" type="password" placeholder="Repeat password"/>
-                                </div>
-
-                                <div className="form-group ml-1" style={{'display': 'flex'}}>
-                                    <input className="form-input-checkbox" type="checkbox" name="agree-terms" id="agree-terms"/>
-                                    <label className="pl-2" htmlFor="agree-terms" style={{'white-space': 'nowrap'}}>
-                                        I agree all statements in  <a href="#">Terms of service</a>
-                                    </label>
-                                </div>
-
-                                <div className="form-group px-1">
-                                    <input className="card-button btn--block" type="submit" name="signup" id="signup" value="Sign up"/>
-                                </div>
-                                
-                            </form>
-                        </div>
-
-                        <figure className="signup-image">
-                            <img src={require('../static/signup-image.jpg')} alt=""/>
-                        </figure>
-                    </div>
-                </div>
-            </section>
-        );
 
         return (
-            <div>
-                <div className="login-bg"><div className="login-overlay"></div></div>
-                {form}
+            <div className="login-bg">
+                <div className="login-overlay">
+                    <section className="sign-in">
+                        <div className="sign-in-container">
+                            <div className="sign-in-content display-flex">
+                                <div className="sign-in-form">
+                                    <h2 className="form-title">Регистрация</h2>
+                                    <form onSubmit={this.handleSubmit} className="register-form" id="register-form">
+                                        <div className="form-group">
+                                            {getFieldDecorator("userName", {
+                                                rules: [{required: true, message: "Введите свой никнейм!"}]
+                                            })(
+                                                <input className="form-input" type="text" placeholder="Никнейм"
+                                                       required/>
+                                            )}
+                                        </div>
+                                        <div className="form-group" style={{'display': 'flex'}}>
+                                            {getFieldDecorator("firstName", {
+                                                rules: [{required: true, message: "Введите своё имя!"}]
+                                            })(
+                                                <input className="form-input flex-fill mr-1" type="text"
+                                                       placeholder="Имя" style={{'width': '50%'}} required/>
+                                            )}
+
+                                            {getFieldDecorator("lastName", {
+                                                rules: [{required: true, message: "Введите свою фамилию!"}]
+                                            })(
+                                                <input className="form-input flex-fill ml-1" type="text"
+                                                       placeholder="Фамилия" style={{'width': '50%'}} required/>
+                                            )}
+                                        </div>
+                                        <div className="form-group">
+                                            {getFieldDecorator("email", {
+                                                rules: [
+                                                    {
+                                                        type: "email",
+                                                        message: "Введен неверный E-mail!"
+                                                    },
+                                                    {
+                                                        required: true,
+                                                        message: "Введите свой E-mail!"
+                                                    }
+                                                ]
+                                            })(
+                                                <input className="form-input" type="email" placeholder="E-mail"
+                                                       required/>
+                                            )}
+                                        </div>
+                                        <div className="form-group">
+                                            {getFieldDecorator("password", {
+                                                rules: [
+                                                    {
+                                                        required: true,
+                                                        message: "Введите пароль!"
+                                                    },
+                                                    {
+                                                        validator: this.validateToNextPassword
+                                                    }
+                                                ]
+                                            })(
+                                                <input className="form-input" type="password" placeholder="Пароль"
+                                                       required/>
+                                            )}
+                                        </div>
+                                        <div className="form-group">
+                                            {getFieldDecorator("confirm", {
+                                                rules: [
+                                                    {
+                                                        required: true,
+                                                        message: "Повторите введенный пароль!"
+                                                    },
+                                                    {
+                                                        validator: this.compareToFirstPassword
+                                                    }
+                                                ]
+                                            })(
+                                                <input className="form-input" type="password"
+                                                       placeholder="Повторите пароль" required/>
+                                            )}
+                                        </div>
+
+                                        <div className="form-group px-1">
+                                            <input className="card-button btn--block" type="submit" name="signup"
+                                                   id="signup" value="Зарегистрироваться"/>
+                                        </div>
+                                    </form>
+                                    {this.state.erv}
+                                    <br/>
+                                    {errorMessage.split('\n').map(elem => {
+                                        return <p className="error-style">{elem}</p>;
+                                    })}
+                                </div>
+
+                                <figure className="signup-image">
+                                    <img src={require('../static/images/signup-image.jpg')} alt=""/>
+                                </figure>
+
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
             </div>
         );
     }
@@ -230,6 +196,7 @@ const mapStateToProps = state => {
     return {
         loading: state.loading,
         error: state.error,
+        token: state.token,
     };
 };
 

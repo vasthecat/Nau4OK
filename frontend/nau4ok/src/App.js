@@ -1,8 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.css'
-import './static/style.css'
-import './static/login_form_style.css'
-import './static/ArrowStyle.css'
-import './static/NavbarStyle.css'
+import './static/styles/style.css'
+import './static/styles/login_form_style.css'
+import './static/styles/ArrowStyle.css'
+import './static/styles/NavbarStyle.css'
+import './static/styles/ProfileStyle.css'
+import './static/styles/FooterStyle.css'
+import './static/styles/CommentStyle.css'
+import './static/styles/SettingsStyle.css'
+import './static/styles/ArticleStyling.css'
 
 import 'bootstrap/dist/js/bootstrap'
 import React, {Component} from 'react';

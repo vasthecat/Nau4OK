@@ -1,22 +1,33 @@
 from rest_framework import serializers
 from rest_auth.registration.serializers import RegisterSerializer
-from articles.models import Article, User
+from articles.models import Article, User, Comment
 from allauth.account.adapter import get_adapter
 from rest_framework.authtoken.models import Token
 
 
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ('author', 'published_date', 'article', 'text')
+
+
 class ArticleSerializer(serializers.ModelSerializer):
+    article_comments = CommentSerializer(many=True, read_only=True)
+
     class Meta:
         model = Article
         fields = (
-            'id', 'title', 'description', 'image', 'text', 'rating', 'n_comments', 'author')
+            'id', 'title', 'description', 'image', 'text', 'rating', 'n_comments', 'author', 'article_comments',
+            'published_date')
 
 
 class UserSerializer(serializers.ModelSerializer):
+    user_comments = CommentSerializer(many=True, read_only=True)
+
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'birth_date', 'bio', 'location', 'avatar', 'password',
-                  'is_author')
+                  'is_author', 'user_comments')
 
 
 class CustomRegisterSerializer(RegisterSerializer):

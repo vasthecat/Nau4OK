@@ -1,0 +1,97 @@
+@gray-light: #e1e1e1;
+@purple-dark: #53067d;
+@purple: #6206b6;
+@purple-light:              #ecdbff;
+@path-fonts:    '../fonts';
+
+
+
+.navbar--styled {
+  background-image: linear-gradient(@purple-dark, @purple);
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+#navbarDropdown {
+  color: white;
+  background: inherit;
+}
+
+.navbar-brand{
+  font-weight: bold;
+  letter-spacing: 4px;
+  font-size: 30px;
+}
+
+.login-button {
+  color: @gray-light;
+  border-color: @gray-light;
+}
+
+.login-button:hover {
+  color: white;
+  border-color: white;
+  background-color: transparent;
+}
+
+@signup-normal: #a800f0;
+@signup-hover: #9b00dd;
+@signup-focus: #8c00cb;
+.signup-button {
+  color: white;
+  background-color: @signup-normal;
+  border: 1px solid @signup-normal;
+}
+
+.signup-button:hover {
+  color: white;
+  background-color: @signup-hover;
+  border: 1px solid @signup-hover;
+}
+
+.signup-button:active, .signup-button:focus {
+  color: white;
+  background-color: @signup-focus;
+  border: 1px solid @signup-focus;
+  outline: none !important;
+  box-shadow: none;
+}
+
+.search-form {
+  width: 70%;
+  color: @gray-light;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid @gray-light;
+}
+
+.search-form::placeholder {
+  color: @gray-light;
+}
+
+.search-form:hover {
+  color: white;
+}
+
+.search-form:hover::placeholder {
+  color: white;
+}
+
+.search-form:focus {
+  color: white;
+  outline: none;
+}
+
+.search-form:focus::placeholder {
+  color: white;
+
+}
+
+@media screen and (max-width: 990px) {
+  .search-form {
+    .search-form;
+    width: 100%;
+  }
+}

@@ -1,0 +1,124 @@
+.login-bg,
+.login-overlay {
+  position: relative;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+.login-bg {
+  background-image: url('../images/science.png');
+}
+.login-overlay {
+  background-image: linear-gradient(rgba(83, 47, 191, 0.9), rgba(35, 216, 186, 0.7));
+}
+.display-flex {
+  justify-content: space-between;
+  align-items: center;
+}
+.sign-in {
+  padding-top: 200px;
+}
+.sign-in-container {
+  border-radius: 20px;
+  width: 900px;
+  background: #ffffff;
+  margin: 0 auto;
+  box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+}
+@media screen and (max-width: 1200px) {
+  .sign-in-container {
+    width: calc(100% - 30px);
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sign-in-container {
+    max-width: 1200px;
+  }
+}
+.sign-in-content {
+  padding: 75px 0;
+  display: flex;
+}
+.sign-in-form {
+  margin-right: 90px;
+  margin-left: 80px;
+}
+.sign-in-image {
+  margin-left: 110px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.signup-image {
+  margin-right: 110px;
+  margin-left: 20px;
+}
+.sign-in-form,
+.sign-in-image {
+  width: 50%;
+  overflow: hidden;
+}
+.register-form {
+  width: 100%;
+}
+.form-title {
+  line-height: 1.66;
+  font-weight: bold;
+  color: #222;
+  font-size: 36px;
+  margin-bottom: 33px;
+}
+.form-input {
+  border: none;
+  border-bottom: 1px solid #999;
+  width: 100%;
+  background-color: transparent;
+  padding: 6px 10px;
+}
+.form-input-checkbox {
+  vertical-align: middle;
+}
+@media screen and (max-width: 1000px) {
+  .sign-in {
+    padding-top: 100px;
+  }
+  .signup-content,
+  .sign-in-content {
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 15px;
+  }
+  .signup-form {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0 30px;
+  }
+  .sign-in-image,
+  .signup-image {
+    overflow: hidden;
+    height: 0px;
+  }
+  .signup-form,
+  .signup-image,
+  .sign-in-form,
+  .sign-in-image {
+    width: auto;
+  }
+  .form-button {
+    text-align: center;
+  }
+  .sign-in-form {
+    order: 1;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0;
+    width: 100%;
+  }
+  .form-title {
+    text-align: center;
+  }
+}
+/*# sourceMappingURL=login_form_style.css.map */

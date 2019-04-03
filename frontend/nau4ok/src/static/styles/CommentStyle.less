@@ -1,0 +1,79 @@
+@import "style";
+
+.comment-avatar {
+  .avatar(110px);
+  margin: 20px 35px 20px 20px;
+
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+}
+
+.comment-container {
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-username {
+  padding-top: 25px;
+  margin-bottom: 20px;
+  font-size: 35px;
+}
+
+.comment-text {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.comment-date {
+  color: #818181;
+  font-size: 15px;
+}
+
+.comment-content {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.comment-textarea {
+  width: 100%;
+  height: 300px;
+
+  border: 0 solid;
+  border-radius: 20px;
+  padding: 16px;
+  background-color: #f6f6f6;
+  resize: none;
+
+  font-size: 20px;
+  outline: none;
+}
+
+.comment-textarea:hover {
+  border: 3px solid #f0f0f0;
+  padding: 13px;
+}
+
+.comment-textarea:focus {
+  border: 3px solid #e6e6e6;
+  padding: 13px;
+}
+
+.comment-button {
+  width: 30%;
+  float: right;
+  margin-top: 10px;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    float: none;
+  }
+}
+

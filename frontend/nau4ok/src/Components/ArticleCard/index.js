@@ -7,13 +7,13 @@ class ArticleCard extends Component {
 
         return (
             <div className="card">
-                <a href={`/articles/${article.id}`}>
-                    <div className="card__image" style={{'background-image': 'url(' + article.image + ')'}}></div>
+                <a href={`/статьи/${article.id}`}>
+                    <div className="card__image" style={{'background-image': 'url(' + article.image + ')'}}/>
                 </a>
                 <div className="card__content">
                     <div className="card__title">{article.title}</div>
                     <p className="card__text">{article.description.split(" ").slice(0, 50).join(" ")}</p>
-                    <a style={{textDecoration: 'none'}} href={`/articles/${article.id}`}>
+                    <a style={{textDecoration: 'none'}} href={`/статьи/${article.id}`}>
                         <div className="card-button btn--block card__btn">Открыть статью</div>
                     </a>
                 </div>
