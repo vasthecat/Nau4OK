@@ -20,6 +20,13 @@ export default class Commentary extends Component {
         });
     }
 
+    static parseDate(date) {
+        let l = date.split('T');
+        let year = l[0].split('-').reverse().join('.');
+        let time = l[1].slice(0, 8);
+        return time + ' ' + year;
+    }
+
     render() {
         const {comment} = this.props;
 
@@ -41,10 +48,11 @@ export default class Commentary extends Component {
                 <img src={avatar} className="avatar-medium comment-avatar"/>
                 <div className="comment-content">
                     <div className="comment-username">{fullName}</div>
-                    <div>
+                    <div className="comment-text">
                         {comment.text}
-                        <br/>
-                        {comment.published_date}
+                    </div>
+                    <div className="comment-date">
+                        Комментарий опубликован {Commentary.parseDate(comment.published_date.toString())}
                     </div>
                 </div>
             </div>

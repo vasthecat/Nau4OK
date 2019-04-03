@@ -33,6 +33,14 @@
 .nau4ok-header {
   height: 100vh;
 }
+.article-title {
+  font-size: 60px;
+}
+@media screen and (max-width: 900px) {
+  .article-title {
+    font-size: 40px;
+  }
+}
 .header-wrapper {
   position: absolute;
   color: white;

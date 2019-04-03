@@ -60,7 +60,7 @@ class Article extends Component {
             <div className="container">
                 <img src={articleImage} alt="Article" className="img-fluid article-main-image mx-auto"/>
 
-                <h1 className="display-3 mt-5">
+                <h1 className="article-title mt-5">
                     {articleTitle}
                 </h1>
 
