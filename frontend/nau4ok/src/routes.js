@@ -10,11 +10,11 @@ import ProfileView from './Containers/ProfileView'
 const BaseRouter = () => (
     <div>
         <Route exact path='/' component={ArticleList}/>
-        <Route exact path='/articles/:articleID' component={ArticleDetail}/>
-        <Route exact path="/login/" component={Login}/>{" "}
-        <Route exact path="/signup/" component={Signup} />
-        <Route exact path="/profile/:profileID" component={ProfileView}/>
-        <Route exact path="/profile" component={ProfileView}/>
+        <Route exact path='/статьи/:articleID' component={ArticleDetail}/>
+        <Route exact path="/войти/" component={Login}/>{" "}
+        <Route exact path="/регистрация/" component={Signup} />
+        <Route exact path="/профиль/:profileID" component={ProfileView}/>
+        <Route exact path="/профиль" component={ProfileView}/>
     </div>
 );
 
