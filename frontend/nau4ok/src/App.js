@@ -6,6 +6,8 @@ import './static/styles/NavbarStyle.css'
 import './static/styles/ProfileStyle.css'
 import './static/styles/FooterStyle.css'
 import './static/styles/CommentStyle.css'
+import './static/styles/SettingsStyle.css'
+import './static/styles/ArticleStyling.css'
 
 import 'bootstrap/dist/js/bootstrap'
 import React, {Component} from 'react';

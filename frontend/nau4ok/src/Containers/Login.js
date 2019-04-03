@@ -23,7 +23,7 @@ class NormalLoginForm extends React.Component {
         let errorMessage = '';
         if (this.props.error) {
             errorMessage = (
-                <p>Неверный логин или пароль!</p>
+                'Неверный логин или пароль!'
             );
         }
         if (this.props.token){
@@ -68,7 +68,9 @@ class NormalLoginForm extends React.Component {
                                         </div>
 
                                     </form>
-                                    {errorMessage}
+                                    {errorMessage.split('\n').map(elem => {
+                                        return <p className="error-style">{elem}</p>;
+                                    })}
                                 </div>
                             </div>
                         </div>

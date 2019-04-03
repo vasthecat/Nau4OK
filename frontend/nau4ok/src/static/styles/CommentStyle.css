@@ -4,6 +4,11 @@
   box-sizing: border-box;
   outline: none;
 }
+.error-style {
+  font-size: 14px;
+  color: red;
+  font-weight: bold;
+}
 .floating-container {
   padding: 20px;
   border-radius: 20px;

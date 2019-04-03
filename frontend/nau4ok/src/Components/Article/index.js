@@ -41,11 +41,32 @@ class Article extends Component {
 
                     return (
                         <p style={{'margin-bottom': '50px'}}>
-                            <img src={LOCALHOST + l[1]} alt={l[2]} className="article-image-inline"/>
+                            <img src={LOCALHOST + '/media/article_images/' + l[1]} alt={l[2]} className="article-image-inline"/>
                             <div className="display-4 text-center article-image-caption">{l[2]}</div>
                         </p>
                     )
                 }
+                else if (par.toString().startsWith('[bold')) {
+                    let s = par.toString();
+                    const l = s.slice(1, s.length - 2).split('|');
+
+                    return (
+                        <p className="bold-paragraph">{l[1]}</p>
+                    )
+                }
+                else if (par.toString().startsWith('[list')) {
+                    let s = par.toString();
+                    const l = s.slice(1, s.length - 2).split('|');
+
+                    return (
+                        <ul>
+                            {l.slice(1, l.length).map(elem => {
+                                return <li className="list-paragraph">{elem}</li>
+                            })}
+                        </ul>
+                    );
+                }
+
                 return <p className="paragraph">{par}</p>
             })
         ) : <p>There is not article.</p>;

@@ -225,4 +225,86 @@ img {
   max-width: 40px;
   max-height: 40px;
 }
-/*# sourceMappingURL=style.css.map */
+.settings-container {
+  margin: 0 auto;
+  width: 900px;
+  height: 700px;
+}
+@media screen and (max-width: 1200px) {
+  .settings-container {
+    width: calc(100% - 30px);
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .settings-container {
+    max-width: 1200px;
+  }
+}
+.settings-upper {
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 768px) {
+  .settings-upper {
+    flex-direction: column;
+  }
+}
+.biography {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 63%;
+  border: 0 solid;
+  border-radius: 20px;
+  padding: 16px;
+  background-color: #f6f6f6;
+  resize: none;
+  font-size: 20px;
+  outline: none;
+}
+@media screen and (max-width: 768px) {
+  .biography {
+    height: 42%;
+  }
+}
+.biography:hover {
+  border: 3px solid #f0f0f0;
+  padding: 13px;
+}
+.biography:focus {
+  border: 3px solid #e6e6e6;
+  padding: 13px;
+}
+.settings-avatar-wrapper {
+  margin: 10px 30px 10px 10px;
+  align-self: center;
+}
+.settings-avatar,
+.settings-avatar-overlay {
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+.settings-avatar {
+  border-radius: 50%;
+  border-color: #444444;
+  border-width: 1px;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+}
+.settings-avatar-overlay {
+  border-radius: 50%;
+  border-color: #444444;
+  border-width: 1px;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  background-image: none;
+}
+.settings-avatar-overlay:hover {
+  background-image: url("../../static/images/choose_photo.png");
+}
+/*# sourceMappingURL=SettingsStyle.css.map */

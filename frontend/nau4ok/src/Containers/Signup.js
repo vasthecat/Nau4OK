@@ -65,7 +65,7 @@ class RegistrationForm extends React.Component {
             let error = this.props.error.response.data;
             if ('password1' in error){
                 error.password1.map(e => {
-                    errorMessage += e
+                    errorMessage += e.toString() + '\n';
                 })
             }
             if ('username' in error){
@@ -171,7 +171,9 @@ class RegistrationForm extends React.Component {
                                     </form>
                                     {this.state.erv}
                                     <br/>
-                                    <p>{errorMessage}</p>
+                                    {errorMessage.split('\n').map(elem => {
+                                        return <p className="error-style">{elem}</p>;
+                                    })}
                                 </div>
 
                                 <figure className="signup-image">

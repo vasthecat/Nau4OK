@@ -1,1 +1,1 @@
-export const LOCALHOST = 'http://научок.рф:8000';//'http://127.0.0.1:8000'; // | 'http://127.0.0.1:8000'
+export const LOCALHOST = 'http://научок.рф:8000'; // | 'http://127.0.0.1:8000'
